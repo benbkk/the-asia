@@ -1,6 +1,8 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 // import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import paths from './paths';
+import postCssConfig from './postcss.config';
 
 export default {
     output: {
@@ -35,22 +37,43 @@ export default {
                     }
                 ]
             },
-           /*  {
+            {
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader'
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => postCssConfig
+                        }
+                    }
                 ]
-            } */
+            }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: "./public/index.ejs",
             title: 'Frontend Starter',
-            filename: "index.html"
+            filename: "index.html",
+            inject: true,
+            minify: true
         }),
-       /* new MiniCssExtractPlugin({
+        new CleanWebpackPlugin(
+            [paths.appDist], 
+            {
+                allowExternal: true
+            }
+        ),
+        /* new MiniCssExtractPlugin({
             filename: "css/[name].css",
             chunkFilename: "[id].css"
         }) */
