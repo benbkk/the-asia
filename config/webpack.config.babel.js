@@ -9,6 +9,7 @@ export default {
     resolve: {
         alias: {
             components: paths.appComponents,
+            static: paths.appStaticComponent,
             config    : paths.appConfig
         },
     },
