@@ -1,4 +1,5 @@
 import { css } from 'glamor';
+import { modularScale } from 'polished';
 
 css.global('html', {
     fontSize: '62.5%',
@@ -18,7 +19,8 @@ css.global('html, body, #app', {
 });
 
 css.global('p', {
-    marginBottom: '1.3em'
+    fontSize: 'inherit',
+    marginBottom: '1.3rem'
 });
 
 css.global('h1, h2, h3, h4', {
@@ -30,7 +32,8 @@ css.global('h1, h2, h3, h4', {
 css.global('h1', {
     marginTop: 0,
     marginBottom: 0,
-    fontSize: '10.966rem'
+    // fontSize: '10.966rem',
+    fontSize: modularScale(4.8, 1.68)
 });
 
 css.global('h2', {
