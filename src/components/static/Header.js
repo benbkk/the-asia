@@ -1,7 +1,7 @@
 import glamorous from 'glamorous';
 
 export default glamorous.header({
-    height: '50vh',
+    height: '33vh',
     width: '100vw',
-    minHeight: '420px'
+    minHeight: '320px'
 })
