@@ -31,6 +31,7 @@ css.global('html, body', {
 
 css.global('p', {
     fontSize: 'inherit',
+    lineHeight: '1.45',
     margin: 0
 });
 

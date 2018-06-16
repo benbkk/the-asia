@@ -10,5 +10,10 @@ export default glamorous.h1(
         uppercase: [upperCase],
         blend: [colorBlend],
         white: [palette.white]
-    })
+    }),
+    {
+    [mediaQueries.mobile]: {
+        fontSize: '3rem',
+    }
+    }
 );
