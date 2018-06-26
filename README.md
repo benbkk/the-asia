@@ -3,7 +3,7 @@ A minimum starter to get on with react projects. Webpack 4 + Glamorous.
 
 ## Featuring
 - Webpack 4
-- Glamorous / Glamor
+- ~~Glamorous / Glamor~~ Emotion CSS
 - PostCSS
 
 ## Getting Started
