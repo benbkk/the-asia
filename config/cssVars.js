@@ -67,3 +67,23 @@ export const vtop = css`
 export const vmiddle = css`
     vertical-align: middle;
 `;
+
+export const lsNone = css`
+    list-style:none;
+`;
+
+export const lsBullet = css`
+    list-style: bullet;
+`;
+
+export const lsSquare = css`
+    list-style: square;
+`;
+
+export const dsBlock = css`
+    display: block;
+`;
+
+export const dsInlineBlock = css`
+    display: inline-block;
+`;
