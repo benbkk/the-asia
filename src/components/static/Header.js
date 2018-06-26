@@ -1,7 +1,7 @@
-import glamorous from 'glamorous';
+import styled from 'react-emotion';
 
-export default glamorous.header({
-    height: '33vh',
-    width: '100vw',
-    minHeight: '320px'
-})
+export default styled('header')`
+    height: 33vh;
+    width: 100vw;
+    min-height: 320px;
+`;

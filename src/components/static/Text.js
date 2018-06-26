@@ -1,13 +1,13 @@
-import glamorous from 'glamorous';
 import propStyles from 'prop-styles';
-import {textCenter, textLeft, textRight, textJustify, colorBlend} from 'config/cssVars';
+import styled from 'react-emotion';
+import {center, left, right, justify, blend} from 'config/cssVars';
 
-export default glamorous.p(
-    propStyles({
-        center: [textCenter],
-        left: [textLeft],
-        right: [textRight],
-        justify: [textJustify],
-        blend: [colorBlend]
-    })
-);
+export default styled('p')`
+    ${propStyles({
+        center: [center],
+        left: [left],
+        right: [right],
+        justify: [justify],
+        blend: [blend]
+    })}
+`;

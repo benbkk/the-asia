@@ -1,11 +1,11 @@
-import glamorous from 'glamorous';
+import styled, { css } from 'react-emotion';
 import { mediaQueries } from 'config/cssVars';
 
-export default glamorous.div({
-    padding: '0 2rem',
-    margin: 'auto',
-    minHeight: 'inherit',
-    [mediaQueries.laptop]: {
-        maxWidth: '1170px',
-    },
-})
+export default styled('div')`
+    padding: 0 2rem;
+    margin: auto;
+    min-height: inherit;
+    ${mediaQueries.laptop} {
+        max-width: 1170px;
+    }
+`;

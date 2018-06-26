@@ -26,9 +26,12 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.10.2",
     "webpack-cli": "^3.0.1",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "webpack-px-to-rem": "^0.1.1"
   },
   "dependencies": {
+    "babel-plugin-emotion": "^9.2.4",
+    "emotion": "^9.2.4",
     "glamor": "^2.20.40",
     "glamorous": "^4.13.1",
     "polished": "^1.9.2",
@@ -36,6 +39,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-emotion": "^9.2.4",
     "typeface-montserrat": "^0.0.54"
   }
 }

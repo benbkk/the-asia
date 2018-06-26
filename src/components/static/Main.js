@@ -1,7 +1,5 @@
-import glamorous from 'glamorous';
+import styled from 'react-emotion';
 
-export default glamorous.main({
-    paddingTop: '2rem',
-    paddingBottom: '2rem',
-    
-})
+export default styled('main')`
+    padding: 36px 0;
+`;

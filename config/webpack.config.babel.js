@@ -33,6 +33,14 @@ export default {
                 use: [
                     {
                         loader: "babel-loader"
+                    },
+                    {
+                        loader: "webpack-px-to-rem",
+                        query: {
+                            basePx: 16,
+                            min:1,
+                            floatWidth: 3,
+                        }
                     }
                 ]
             },

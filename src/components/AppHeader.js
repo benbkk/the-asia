@@ -1,6 +1,6 @@
 import React from 'react';
 import glamorous from 'glamorous';
-import { palette } from 'config/cssVars';
+import { palette, center } from 'config/cssVars';
 import Container from 'static/Container';
 import VerticalAlign from 'static/VerticalAlign';
 import P from 'static/Text';

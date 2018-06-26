@@ -1,19 +1,18 @@
-import glamorous from 'glamorous';
+import styled, { css } from 'react-emotion';
 import propStyles from 'prop-styles';
-import { palette, textCenter, textLeft, textRight, upperCase, colorBlend, mediaQueries } from 'config/cssVars';
+import { palette, center, left, right, uppercase, blend, mediaQueries} from 'config/cssVars';
 
-export default glamorous.h1(
-    propStyles({
-        center: [textCenter], 
-        left: [textLeft],
-        right: [textRight],
-        uppercase: [upperCase],
-        blend: [colorBlend],
+export default styled('h1')`
+    ${propStyles({
+        center: [center], 
+        left: [left],
+        right: [right],
+        uppercase: [uppercase],
+        blend: [blend],
         white: [palette.white]
-    }),
-    {
-    [mediaQueries.mobile]: {
-        fontSize: '3rem',
+    })}
+
+    ${mediaQueries.mobile} {
+        font-size: 3rem;
     }
-    }
-);
+`;

@@ -1,3 +1,5 @@
+import { css } from 'emotion';
+
 export const palette =  {
     black: '#333333',
     blue: '#4262E8',
@@ -16,37 +18,48 @@ export const mediaQueries = {
     mobile: '@media screen and (max-width:640px)',
 }
 
-export const textLeft = {
-    textAlign: 'left'
-}
+export const left = css`
+    text-align: left;
+`;
 
-export const textCenter = {
-    textAlign: 'center',
-    [mediaQueries.mobile]: {
-        textAlign: 'left',
+export const center =  css`
+    text-align: center;
+    ${mediaQueries.mobile} {
+        text-align: left;
     }
-}
+`;
 
-export const textRight = {
-    textAlign: 'right',
-    [mediaQueries.mobile]: {
-        textAlign: 'left',
+export const right = css`
+    text-align: right;
+    ${mediaQueries.mobile} {
+        text-align: left;
     }
-}
+`;
 
-export const textJustify = {
-    textAlign: 'justify'
-}
+export const justify = css`
+    text-align: justify;
+`;
 
-export const upperCase = {
-    textTransform: 'uppercase',
-}
+export const uppercase = css`
+    text-transform: uppercase;
+`;
 
-export const colorBlend = {
-    backgroundColor: 'inherit',
-    WebkitBackgroundClip: 'text',
-    backgroundClip: 'text',
-    filter: 'invert(1) grayscale(100%) contrast(1)',
-    mixBlendMode: 'invert'
-}
+export const blend = css`
+    background-color: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: invert(1) grayscale(100%) contrast();
+    mix-blend-mode: invert;
+`;
 
+export const vbottom = css`
+    vertical-align: bottom;
+`;
+
+export const vtop = css`
+    vertical-align: top;
+`; 
+
+export const vmiddle = css`
+    vertical-align: middle;
+`;
