@@ -1,12 +1,35 @@
 {
+    "env": {
+        "node": true,
+        "browser": true
+    },
     "extends": "airbnb",
     "rules": {
-        "indent": ["error", 4]
+        "indent":["error", 4],
+        "import/no-unresolved": [2, { "commonjs": true }],
+        "react/jsx-indent":["error", 4],
+        "react/jsx-filename-extension": 
+        [
+            1, 
+            { 
+                "extensions": [
+                    ".js", ".jsx"
+                ] 
+            }
+        ]
     },
     "settings": {
         "import/resolver": {
             "node": {
-                "paths": ["src"]
+                "paths": [
+                    "src"
+                ]
+            },
+            "webpack": {
+                "paths":[
+                    "config"
+                ],
+                "config":"./config/webpack.config.babel.js"
             }
         }
     }

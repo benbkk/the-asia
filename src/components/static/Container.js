@@ -1,4 +1,4 @@
-import styled, { css } from 'react-emotion';
+import styled from 'react-emotion';
 import { mediaQueries } from 'config/cssVars';
 
 export default styled('div')`
