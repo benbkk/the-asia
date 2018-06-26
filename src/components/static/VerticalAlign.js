@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import propStyles from 'prop-styles';
-import glamorous from 'glamorous';
 import styled from 'react-emotion';
 
 import { vbottom, vtop, vmiddle} from 'config/cssVars';

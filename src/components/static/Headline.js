@@ -12,7 +12,11 @@ export default styled('h1')`
         white: [palette.white]
     })}
 
+    ${mediaQueries.tablet} {
+        font-size: 64px;
+    }
+
     ${mediaQueries.mobile} {
-        font-size: 3rem;
+        font-size: 48px;
     }
 `;

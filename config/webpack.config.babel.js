@@ -1,17 +1,28 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
-
 // import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
+const vendors = [
+    'emotion',
+    'react',
+    'react-dom',
+    'react-emotion',
+    'polished',
+    'prop-styles',
+    'prop-types',
+    'typeface-montserrat'
+];
+
 import paths from './paths';
 import postCssConfig from './postcss.config';
 
 export default {
     entry: {
-        app: './src/index.js'
+        app: './src/index.js',
     },
     output: {
-        filename: "js/bundle.js"
+        filename: 'js/bundle.js'
     },
     resolve: {
         alias: {
@@ -21,10 +32,6 @@ export default {
         },
     },
     devtool: 'inline-source-map',
-    devServer: {
-        contentBase: './dist',
-        hot: true,
-    },
     module: {
         rules: [
             {
@@ -109,5 +116,20 @@ export default {
             filename: "css/[name].css",
             chunkFilename: "[id].css"
         }) */
-    ]
+    ],
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all'
+                }
+            }
+        }
+    },
+    devServer: {
+        contentBase: './',
+        hot: true,
+    },
 };

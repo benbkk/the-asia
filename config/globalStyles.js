@@ -12,11 +12,13 @@ injectGlobal`
         font-weight: normal;
         width: 100vw;
         height: 100vh;
+        min-height: 100vh;
     }
 
     body {
         font-size: inherit;
         height: inherit;
+        min-height: inherit;
         width: inherit;
         line-height: 1.45;
         color: ${palette.black};
@@ -60,5 +62,9 @@ injectGlobal`
 
     small {
         font-size: 11.312px;
+    }
+
+    #app, .app-wrapper {
+        min-height: inherit;
     }
 `;

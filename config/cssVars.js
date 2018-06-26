@@ -10,6 +10,10 @@ export const palette =  {
     white: '#ffffff',
 }
 
+export const bgBlue = css`
+    background-color: ${palette.blue};
+`
+
 export const mediaQueries = {
     desktop: '@media only screen and (min-width:1920px)',
     laptop: '@media screen and (min-width: 1025px)',

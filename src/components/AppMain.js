@@ -2,8 +2,6 @@ import React from 'react';
 import Main from 'static/Main';
 import Container from 'static/Container';
 import P from 'static/Text';
-import glamorous from 'glamorous';
-import PropTypes from 'prop-types';
 
 const AppMain = props => (
     <Main className={'main-stage'}>
