@@ -6,5 +6,5 @@ export default () => (
     <div className="app-wrapper">
         <AppHeader />
         <AppMain />
-    </div>    
+    </div>
 );

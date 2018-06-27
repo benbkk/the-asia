@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import propStyles from 'prop-styles';
 import styled from 'react-emotion';
 
-import { vbottom, vtop, vmiddle} from 'config/cssVars';
+import { vbottom, vtop, vmiddle } from 'config/cssVars';
 
 const TableCell = styled('div')`
     display: table-cell;
     ${propStyles({
         bottom: [vbottom],
-        top:[vtop],
+        top: [vtop],
         middle: [vmiddle],
     })}
 `;
@@ -21,16 +21,16 @@ const Table = styled('div')`
     width: 100%;
 `;
 
-const VMiddle = props => (
+const VMiddle = ({ children, ...props }) => (
     <Table>
         <TableCell {...props}>
-            {props.children}
+            { children }
         </TableCell>
-    </Table>            
+    </Table>
 );
 
 VMiddle.propTypes = {
-    children: PropTypes.node,
-}
+    children: PropTypes.node.isRequired,
+};
 
 export default VMiddle;

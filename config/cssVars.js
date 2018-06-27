@@ -1,6 +1,6 @@
 import { css } from 'emotion';
 
-export const palette =  {
+export const palette = {
     black: '#333333',
     blue: '#4262E8',
     purple: '#7949FF',
@@ -8,11 +8,11 @@ export const palette =  {
     turquoise: '#42E8D9',
     green: '#2DFF87',
     white: '#ffffff',
-}
+};
 
 export const bgBlue = css`
     background-color: ${palette.blue};
-`
+`;
 
 export const mediaQueries = {
     desktop: '@media only screen and (min-width:1920px)',
@@ -20,13 +20,13 @@ export const mediaQueries = {
     tablet: '@media only screen and (max-width:1024px)',
     tabletS: '@media only screen and (max-width:768px)',
     mobile: '@media screen and (max-width:640px)',
-}
+};
 
 export const left = css`
     text-align: left;
 `;
 
-export const center =  css`
+export const center = css`
     text-align: center;
     ${mediaQueries.mobile} {
         text-align: left;
@@ -62,7 +62,7 @@ export const vbottom = css`
 
 export const vtop = css`
     vertical-align: top;
-`; 
+`;
 
 export const vmiddle = css`
     vertical-align: middle;
