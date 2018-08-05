@@ -1,26 +1,38 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
-// import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
+import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
+import path from 'path';
 import paths from './paths';
 import postCssConfig from './postcss.config';
 
 export default {
     entry: {
-        app: './src/index.js',
+        main: paths.appIndexJs,
     },
     output: {
-        filename: 'js/bundle.js',
+        filename: '[name]-[hash].js',
+        chunkFilename: '[name]-[chunkhash].js',
+        path: `${paths.appDist}/`,
+        publicPath: '/',
     },
     resolve: {
         alias: {
             components: paths.appComponents,
+            public: paths.public,
             static: paths.appStaticComponent,
             config: paths.appConfig,
+            src: paths.appSrc,
+            css: paths.css,
+            reducers: paths.reducers,
+            constants: paths.constants,
+            actions: paths.actions,
+            fonts: paths.fonts,
+            state: paths.state,
+            store: paths.store,
+            helpers: paths.helpers,
         },
     },
-    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -30,14 +42,6 @@ export default {
                     {
                         loader: 'babel-loader',
                     },
-                    {
-                        loader: 'webpack-px-to-rem',
-                        query: {
-                            basePx: 16,
-                            min: 1,
-                            floatWidth: 3,
-                        },
-                    },
                 ],
             },
             {
@@ -45,9 +49,6 @@ export default {
                 use: [
                     {
                         loader: 'html-loader',
-                        options: {
-                            minimize: true,
-                        },
                     },
                 ],
             },
@@ -72,14 +73,22 @@ export default {
                 ],
             },
             {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[name].[ext]',
-                            outputPath: './fonts',
+                            name: './fonts/[name].[ext]',
+                            path: paths.appDist,
                         },
+                    },
+                ],
+            },
+            {
+                test: /\.(png|jpg|ico)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
                     },
                 ],
             },
@@ -87,11 +96,13 @@ export default {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.ejs',
-            title: 'Frontend Starter',
+            template: `${paths.public}/index.ejs`,
             filename: 'index.html',
-            inject: true,
+            title: 'Let\'s find You an Article | on TheNewYorkTimes',
             minify: true,
+            favicon: `${paths.public}/favicon.png`,
+            prefix: '/',
+            
         }),
         new CleanWebpackPlugin(
             [paths.appDist],
@@ -101,24 +112,43 @@ export default {
         ),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        /* new MiniCssExtractPlugin({
-            filename: "css/[name].css",
-            chunkFilename: "[id].css"
-        }) */
     ],
     optimization: {
         splitChunks: {
+            name: false,
             cacheGroups: {
                 commons: {
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendor',
                     chunks: 'all',
+                    priority: -10,
+                    enforce: true,
+                },
+                default: {
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true,
                 },
             },
         },
+        minimizer: [
+            new UglifyJSPlugin({
+                parallel: true,
+                cache: true,
+                sourceMap: false,
+                uglifyOptions: {
+                    ecma: 5,
+                    warnings: true,
+                    comments: false,
+                    beautify: true,
+                },
+            }),
+        ],
     },
     devServer: {
-        contentBase: './',
+        publicPath: '/',
+        historyApiFallback: true,
+        contentBase: false,
         hot: true,
     },
 };
