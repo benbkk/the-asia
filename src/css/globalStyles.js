@@ -1,6 +1,6 @@
 import 'typeface-montserrat';
 import { injectGlobal } from 'emotion';
-import { palette } from 'config/cssVars';
+import { palette } from 'css/variables';
 
 injectGlobal`
     * {

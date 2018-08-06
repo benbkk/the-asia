@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import propStyles from 'prop-styles';
 import styled from 'react-emotion';
 
-import { vbottom, vtop, vmiddle } from 'config/cssVars';
+import { vbottom, vtop, vmiddle } from 'css/variables';
 
 const TableCell = styled('div')`
     display: table-cell;

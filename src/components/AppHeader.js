@@ -1,5 +1,5 @@
 import React from 'react';
-import { bgBlue } from 'config/cssVars';
+import { bgBlue } from 'css/variables';
 import Header from 'static/Header';
 import Container from 'static/Container';
 import VerticalAlign from 'static/VerticalAlign';

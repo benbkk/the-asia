@@ -2,7 +2,7 @@ import propStyles from 'prop-styles';
 import styled from 'react-emotion';
 import {
     center, left, right, justify, blend,
-} from 'config/cssVars';
+} from 'css/variables';
 
 export default styled('p')`
     ${propStyles({

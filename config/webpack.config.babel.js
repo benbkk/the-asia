@@ -2,7 +2,6 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
-import path from 'path';
 import paths from './paths';
 import postCssConfig from './postcss.config';
 

@@ -1,5 +1,5 @@
 import styled from 'react-emotion';
-import { mediaQueries } from 'config/cssVars';
+import { mediaQueries } from 'css/variables';
 
 export default styled('div')`
     padding: 0 2rem;

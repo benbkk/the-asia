@@ -8,7 +8,7 @@ import {
     uppercase,
     blend,
     mediaQueries,
-} from 'config/cssVars';
+} from 'css/variables';
 
 export default styled('h1')`
     ${propStyles({
