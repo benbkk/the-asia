@@ -1,7 +1,7 @@
 {
-  "name": "frontend-starter",
+  "name": "the-asia",
   "version": "1.0.0",
-  "description": "A minimal starter for projects with React",
+  "description": "A carousel to present destinations",
   "main": "index.js",
   "author": "Beta Anggoro (Ben)",
   "license": "MIT",
