@@ -1,10 +1,10 @@
-# frontend-starter
-A minimum starter to get on with react projects. Webpack 4 + Glamorous.
+# The Asia's Cities Slider
+A very basic content slider built as react component. Just react without all the fancy stuff + hand crafted css-in-Js with the help of emotion-js and polished.
 
-## Featuring
+## Recipes
 - Webpack 4
-- ~~Glamorous / Glamor~~ Emotion CSS
-- PostCSS
+- Emotion CSS
+- Polished JS
 
 ## Getting Started
 
