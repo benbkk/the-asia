@@ -1,70 +1,72 @@
-import 'typeface-montserrat';
+import WebFont from 'webfontloader';
 import { injectGlobal } from 'emotion';
-import { palette } from 'css/variables';
+import { family } from 'css/variables';
+import { normalize, rem } from 'polished';
+import { palette } from './variables';
+
+WebFont.load({
+    google: {
+        families: [
+            'Noto+Sans|Raleway|Roboto',
+        ],
+    },
+});
 
 injectGlobal`
+    ${normalize()};
+
     * {
         box-sizing: border-box;
     }
-
     html {
-        font-size: 18px;
-        font-weight: normal;
-        width: 100vw;
-        height: 100vh;
-        min-height: 100vh;
+        height: 100%;
+        font-size: ${rem('16px', '16px')};
+        min-width: 320px;
+        ${family.raleway};
+        -webkit-font-smoothing: auto;
+        -moz-osz-font-smoothing: auto;
+        text-rendering: optimizedLegibility;
     }
 
     body {
-        font-size: inherit;
         height: inherit;
-        min-height: inherit;
-        width: inherit;
-        line-height: 1.45;
-        color: ${palette.black};
-        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        min-width: inherit;
+        color: ${palette.bodyText};
     }
 
-    html, body {
-        padding: 0;
-        margin: 0;
-    }
-
-    p {
-        font-size: inherit;
-        line-height: 1.45;
-        margin: 0;
-    }
-
-    h1, h2, h3, h4 {
-        font-weight: 700;
-        line-height: 1.2;
-        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    h1,
+    h2,
+    h3,
+    h4 {
+        ${family.raleway};
     }
 
     h1 {
-        margin-top: 0;
-        margin-bottom: 0;
-        font-size: 72px;
+        font-size: ${rem('47px', '16px')};
     }
 
-    h2 {
-        font-size: 45.232px;
+    h2 { 
+        font-size: ${rem('29px', '16px')};
     }
 
     h3 {
-        font-size: 31.984px;
+        font-size: ${rem('23px', '16px')};
     }
 
-    h4 {
-        font-size: 22.624px;
+    p,
+    li {
+        margin: 0 0 ${rem('18px', '16px')} 0;
+        line-height: 1.45;
     }
 
-    small {
-        font-size: 11.312px;
+    a, button {
+        &:active,
+        &:focus {
+            outline: none;
+        }
     }
 
-    #app, .app-wrapper {
-        min-height: inherit;
+    figure {
+        margin: 0;
     }
 `;
