@@ -3,8 +3,10 @@
         "node": true,
         "browser": true
     },
+    "parser": "babel-eslint",
     "extends": "airbnb",
     "rules": {
+        "camelcase": ["off"],
         "indent":["error", 4],
         "import/no-unresolved": [2, { "commonjs": true }],
         "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],

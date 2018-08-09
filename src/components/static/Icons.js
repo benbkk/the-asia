@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'react-emotion';
 import propStyles from 'prop-styles';
+import PropTypes from 'prop-types';
 import {
     iconSm, iconLg, fillBlack, fillWhite,
 } from 'css/utilities';
@@ -58,5 +59,9 @@ const Icon = ({ name, ...props }) => (
         </Svg>
     </I>
 );
+
+Icon.propTypes = {
+    name: PropTypes.string.isRequired,
+};
 
 export default Icon;

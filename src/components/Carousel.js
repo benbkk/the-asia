@@ -31,19 +31,17 @@ export default class Carousel extends Component {
             cities,
         });
     }
-    
+
     handlePrev = () => {
         this.setState(prevState => ({
-            currentIndex: prevState.currentIndex - 1
-          }));
-        console.log('Previous is Clicked');
+            currentIndex: prevState.currentIndex - 1,
+        }));
     }
 
     handleNext = () => {
         this.setState(prevState => ({
-            currentIndex: prevState.currentIndex + 1
-          }));
-        console.log('Next Button is Clicked', this.state.currentIndex);
+            currentIndex: prevState.currentIndex + 1,
+        }));
     }
 
     render() {
@@ -56,14 +54,14 @@ export default class Carousel extends Component {
                 <Wrapper className="carousel-wrapper">
                     <Screen {...city} />
                     <nav>
-                        <Button 
+                        <Button
                             className="previous"
                             grayLight
                             onClick={this.handlePrev}
                         >
                             <Icon name="back" black />
                         </Button>
-                        <Button 
+                        <Button
                             grayLight
                             onClick={this.handleNext}
                         >
@@ -71,7 +69,7 @@ export default class Carousel extends Component {
                         </Button>
                     </nav>
                 </Wrapper>
-            </Container>    
+            </Container>
         );
     }
 }
