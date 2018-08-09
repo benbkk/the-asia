@@ -1,8 +1,12 @@
 import { css } from 'react-emotion';
 import {
-    size, rem, position,
+    size, rem, position, darken, shade,
 } from 'polished';
 import { palette, mediaQueries } from 'css/variables';
+
+export const textSm = css`
+    font-size: ${rem('14px', '16px')};
+`;
 
 export const absCenter = css`
     ${position('absolute', 0)};
@@ -34,6 +38,22 @@ export const iconLg = css`
 
 export const bgGrayLightest = css`
     background-color: ${palette.grayLightest};
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: ${darken(0.1, palette.grayLightest)};
+    }
+`;
+
+export const transparentBtn = css`
+    background-color: transparent;
+    border-color: transparent;
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: transparent;
+        border-color: transparent;
+    }
 `;
 
 export const bgWhite = css`
@@ -46,12 +66,29 @@ export const bgOrange = css`
 
 export const bgGreen = css`
     background-color: ${palette.green};
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: ${darken(0.1, palette.green)};
+    }
 `;
 
 export const outlineGreen = css`
     background-color: transparent;
-    border: 2px solid ${palette.green};
+    border: 1px solid ${palette.green};
     color: ${palette.green};
+    &:hover,
+    &:active,
+    &:focus {
+        border-color: ${darken(0.1, palette.green)};
+        color: ${darken(0.1, palette.green)};
+    }
+`;
+
+export const outlineGrayLightest = css`
+    background-color: transparent;
+    border: 1px solid ${palette.grayLightest};
+    color: ${palette.grayLightest};
 `;
 
 export const bgBlack = css`
@@ -130,4 +167,29 @@ export const fillBlack = css`
 
 export const fillWhite = css`
     fill: ${palette.white};
+`;
+
+export const gradientPseudo = css`
+    &:before {
+        content: '';
+        display: block;
+        width: inherit;
+        position: absolute;
+        height: 40px;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        z-index:4;
+
+        background-image: -webkit-linear-gradient(-90deg, rgba(255,255,255,0) 0, rgba(255,255,255,1) 100%);
+        background-image: -moz-linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(255,255,255,1) 100%);
+        background-image: linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(255,255,255,1) 100%);
+        background-position: 50% 50%;
+        -webkit-background-origin: padding-box;
+        background-origin: padding-box;
+        -webkit-background-clip: border-box;
+        background-clip: border-box;
+        -webkit-background-size: auto auto;
+        background-size: auto auto;
+    }
 `;

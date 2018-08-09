@@ -7,7 +7,7 @@ import { palette } from './variables';
 WebFont.load({
     google: {
         families: [
-            'Noto+Sans|Raleway|Roboto',
+            'Noto+Sans|Raleway:400,700|Roboto',
         ],
     },
 });
@@ -69,4 +69,10 @@ injectGlobal`
     figure {
         margin: 0;
     }
+
+    #app,
+    .app-wrapper {
+        height: inherit;
+    }
+
 `;
