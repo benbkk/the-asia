@@ -46,7 +46,7 @@ const TextWrapper = styled('span')`
     position: relative;
     display: block;
     margin-bottom: 27px;
-`
+`;
 
 const textOverflow = css`
     height: 5rem;
@@ -74,7 +74,7 @@ export default ({ ...city }) => {
                     <Text className={`${textOverflow}`} textJustify small>
                         {description}
                     </Text>
-                </TextWrapper>    
+                </TextWrapper>
                 <PackagePrice />
                 <ButtonGroup />
             </Caption>

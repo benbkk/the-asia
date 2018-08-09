@@ -6,7 +6,7 @@ import Icon from 'static/Icons';
 import Button from 'static/Button';
 import 'whatwg-fetch';
 import styled, { css } from 'react-emotion';
-import { clearFix, position } from 'polished';
+import { position } from 'polished';
 
 const Wrapper = styled('div')`
     position: relative;
@@ -28,7 +28,6 @@ const btnNext = css`
     z-index: 3;
 `;
 export default class Carousel extends Component {
-
     constructor(props) {
         super(props);
 
@@ -85,8 +84,6 @@ export default class Carousel extends Component {
         const { cities, city, currentIndex } = this.state;
         const { scale } = this.props;
         if (!cities || cities.length === 0) return <Loading />;
-
-        
         return (
             <Container className="container">
                 <Wrapper className="carousel-wrapper" scale={scale}>

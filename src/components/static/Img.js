@@ -32,5 +32,5 @@ export default props => (
         <Image className="image-wrapper">
             <Img {...props} />
         </Image>
-    </LazyLoad>  
+    </LazyLoad>
 );

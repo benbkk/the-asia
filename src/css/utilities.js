@@ -1,6 +1,6 @@
 import { css } from 'react-emotion';
 import {
-    size, rem, position, darken, shade,
+    size, rem, position, darken,
 } from 'polished';
 import { palette, mediaQueries } from 'css/variables';
 
@@ -45,7 +45,7 @@ export const bgGrayLightest = css`
     }
 `;
 
-export const transparentBtn = css`
+export const btnTransparent = css`
     background-color: transparent;
     border-color: transparent;
     &:hover,

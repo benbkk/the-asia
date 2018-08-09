@@ -14,7 +14,7 @@ const commonPriceStyling = css`
     display: inline-block;
     vertical-align: baseline;
     color: ${palette.green};
-`
+`;
 
 const Symbol = styled('span')`
     ${commonPriceStyling};
@@ -38,8 +38,15 @@ export default () => (
         <Small>
             Starting from
         </Small>
-        <Symbol className="symbol">$</Symbol>
-        <Price className="price">29.00</Price>
-        <Currency className="currency">USD</Currency>
-    </Wrapper>    
+        <Symbol className="symbol">
+$
+</Symbol>
+        <Price className="price">
+29.00
+</Price>
+        <Currency className="currency">
+USD
+</Currency>
+    </Wrapper>
 )
+;

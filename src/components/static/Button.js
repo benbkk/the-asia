@@ -47,6 +47,7 @@ export default styled('button')`
     }
 
     ${propStyles({
+        transparent: [btnTransparent],
         outlineGrayLightest: [outlineGrayLightest],
         outlineGreen: [outlineGreen],
         orange: [bgOrange],
