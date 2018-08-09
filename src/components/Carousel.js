@@ -11,6 +11,7 @@ import { clearFix, position } from 'polished';
 const Wrapper = styled('div')`
     position: relative;
     width: 100%;
+    transform: ${props => `scale(${props.scale})`};
 `;
 
 const btnPrev = css`
@@ -82,12 +83,13 @@ export default class Carousel extends Component {
 
     render() {
         const { cities, city, currentIndex } = this.state;
+        const { scale } = this.props;
         if (!cities || cities.length === 0) return <Loading />;
 
         
         return (
             <Container className="container">
-                <Wrapper className="carousel-wrapper">
+                <Wrapper className="carousel-wrapper" scale={scale}>
                     <Screen {...city} />
                     <Button
                         className={`${btnPrev} previous`}

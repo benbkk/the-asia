@@ -75,4 +75,11 @@ injectGlobal`
         height: inherit;
     }
 
+    #app {
+        @supports(padding: max(0px)) {
+            padding-left: max(16px, env(safe-area-inset-left));
+            padding-right: max(16px, env(safe-area-inset-right));
+        }
+    }
+
 `;

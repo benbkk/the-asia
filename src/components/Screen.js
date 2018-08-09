@@ -7,6 +7,7 @@ import { palette } from 'css/variables';
 import { mt0, gradientPseudo } from 'css/utilities';
 import ButtonGroup from 'static/ButtonGroup';
 import PackagePrice from 'static/PackagePrice';
+import { mediaQueries } from '../css/variables';
 
 const Screen = styled('figure')`
     margin: ${rem('18px', '16px')} 0;
@@ -28,6 +29,17 @@ const Caption = styled('figcaption')`
     position: relative;
     background: ${transparentize(0.3, palette.white)};
     box-shadow: 5px 10px 50px 0 rgba(1,121,255,.1),5px 10px 50px 0 rgba(0,0,0,.2);
+
+    ${mediaQueries.tablet} {
+        padding: ${rem('36px', '16px')};
+    }
+    
+    ${mediaQueries.tabletS} {
+        width: 100%;
+        display: block;
+        border-radius: 0 0 4px 4px;
+        padding: ${rem('27px', '16px')};
+    }
 `;
 
 const TextWrapper = styled('span')`

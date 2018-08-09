@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 import { Wrapper } from 'static/Elements';
-import { palette } from '../../css/variables';
-import { rem, darken } from '../../../node_modules/polished';
+import { palette } from 'css/variables';
+import { rem, darken } from 'polished';
 
 const Small = styled('small')`
     display: block;
@@ -10,28 +10,27 @@ const Small = styled('small')`
     color: ${darken(0.25, palette.grayLightest)};
 `;
 
-const Symbol = styled('span')`
+const commonPriceStyling = css`
     display: inline-block;
     vertical-align: baseline;
-    font-size: ${rem('29px', '16px')};
     color: ${palette.green};
+`
+
+const Symbol = styled('span')`
+    ${commonPriceStyling};
+    font-size: ${rem('29px', '16px')}; 
     font-weight: 700;
 `;
 
 const Price = styled('span')`
-    display: inline-block;
-    vertical-align: baseline;
-    color: ${palette.green};
+    ${commonPriceStyling};
     font-size: ${rem('29px', '16px')};
-    color: ${palette.green};
     font-weight: 700;
 `;
 
 const Currency = styled('span')`
-    display: inline-block;
-    vertical-align: baseline;
+    ${commonPriceStyling};
     font-size: ${rem('20px', '16px')};
-    color: ${palette.green};
 `;
 
 export default () => (
