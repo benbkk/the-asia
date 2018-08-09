@@ -1,10 +1,10 @@
 import React from 'react';
-import AppHeader from 'components/AppHeader';
-import AppMain from 'components/AppMain';
+import Header from 'components/Header';
+import Carousel from 'components/Carousel';
 
 export default () => (
     <div className="app-wrapper">
-        <AppHeader />
-        <AppMain />
+        <Header />
+        <Carousel />
     </div>
 );
