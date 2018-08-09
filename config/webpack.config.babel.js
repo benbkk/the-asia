@@ -7,28 +7,28 @@ import postCssConfig from './postcss.config';
 
 export default {
     entry: {
-        main: paths.appIndexJs,
+        main: [
+            paths.indexJs,
+        ],
     },
     output: {
-        filename: '[name]-[hash].js',
-        chunkFilename: '[name]-[chunkhash].js',
-        path: `${paths.appDist}/`,
+        filename: 'js/[name]-[hash].js',
+        chunkFilename: 'js/[name]-[chunkhash].js',
+        path: `${paths.dist}/`,
         publicPath: '/',
     },
     resolve: {
         alias: {
-            components: paths.appComponents,
+            indexJs: paths.indexJs,
+            components: paths.components,
             public: paths.public,
-            static: paths.appStaticComponent,
-            config: paths.appConfig,
-            src: paths.appSrc,
+            static: paths.static,
+            config: paths.config,
+            src: paths.src,
+            dist: paths.dist,
             css: paths.css,
-            reducers: paths.reducers,
-            constants: paths.constants,
-            actions: paths.actions,
+            img: paths.img,
             fonts: paths.fonts,
-            state: paths.state,
-            store: paths.store,
             helpers: paths.helpers,
         },
     },
@@ -47,7 +47,19 @@ export default {
                 test: /\.html$/,
                 use: [
                     {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].html',
+                        },
+                    },
+                    {
+                        loader: 'extract-loader',
+                    },
+                    {
                         loader: 'html-loader',
+                        options: {
+                            attrs: ['img:src'],
+                        },
                     },
                 ],
             },
@@ -77,8 +89,8 @@ export default {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: './fonts/[name].[ext]',
-                            path: paths.appDist,
+                            name: 'fonts/[name].[ext]',
+                            path: `${paths.dist}/fonts`,
                         },
                     },
                 ],
@@ -88,6 +100,10 @@ export default {
                 use: [
                     {
                         loader: 'file-loader',
+                        options: {
+                            name: 'img/[name].[ext]',
+                            path: `${paths.dist}/img`,
+                        },
                     },
                 ],
             },
@@ -97,14 +113,14 @@ export default {
         new HtmlWebpackPlugin({
             template: `${paths.public}/index.ejs`,
             filename: 'index.html',
-            title: 'Let\'s find You an Article | on TheNewYorkTimes',
+            title: 'Destinations | The Asia - Your Experience, Your Asia',
             minify: true,
             favicon: `${paths.public}/favicon.png`,
             prefix: '/',
-            
+
         }),
         new CleanWebpackPlugin(
-            [paths.appDist],
+            [paths.dist],
             {
                 allowExternal: true,
             },

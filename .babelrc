@@ -2,15 +2,20 @@
     "presets": [
         ["@babel/preset-env", {
             "targets": {
-              "node": "current"
-
-            }
+              "node": "current",
+              "browsers": [
+                  ">0.25%",
+                  "not ie 11",
+                  "not op_mini all"
+              ]
+            },
+            "useBuiltIns": "usage"
         }],
         ["@babel/preset-react"]
     ],
 
     "plugins": [
-        ["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }],
+        ["@babel/plugin-transform-arrow-functions"],["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }],
         ["@babel/plugin-proposal-class-properties", { "loose": true }],
         ["@babel/plugin-syntax-dynamic-import"],
         ["emotion"]
