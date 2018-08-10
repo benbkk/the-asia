@@ -82,11 +82,11 @@ export default class Carousel extends Component {
 
     render() {
         const { cities, city, currentIndex } = this.state;
-        const { scale } = this.props;
+        const { scale, opacity } = this.props;
         if (!cities || cities.length === 0) return <Loading />;
         return (
             <Container className="container">
-                <Wrapper className="carousel-wrapper" scale={scale}>
+                <Wrapper className="carousel-wrapper" scale={scale} opacity={opacity}>
                     <Screen {...city} />
                     <Button
                         className={`${btnPrev} previous`}

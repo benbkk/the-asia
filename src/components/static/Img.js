@@ -3,7 +3,7 @@ import styled from 'react-emotion';
 import LazyLoad from 'react-lazyload';
 import { mediaQueries } from '../../css/variables';
 
-const Img = styled('img')`
+export const Img = styled('img')`
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -11,7 +11,7 @@ const Img = styled('img')`
     vertical-align: middle;
 `;
 
-const Image = styled('span')`
+export const ImageWrapper = styled('span')`
     display: inline-block;
     overflow: hidden;
     vertical-align: middle;
@@ -26,11 +26,3 @@ const Image = styled('span')`
         border-radius: 6px 6px 0 0;
     }
 `;
-
-export default props => (
-    <LazyLoad height={380}>
-        <Image className="image-wrapper">
-            <Img {...props} />
-        </Image>
-    </LazyLoad>
-);
