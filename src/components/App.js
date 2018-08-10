@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from 'components/Header';
-import AnimateCarousel from 'components/AnimateCarousel';
+import Carousel from 'components/Carousel';
 
 export default () => (
     <React.Fragment>
         <Header />
-        <AnimateCarousel />
+        <Carousel />
     </React.Fragment>
 );

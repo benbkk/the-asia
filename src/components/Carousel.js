@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Container } from 'static/Elements';
 import Loading from 'static/Loader';
 import Screen from 'components/Screen';
+import { Container, List } from 'static/Elements';
 import Icon from 'static/Icons';
 import Button from 'static/Button';
 import 'whatwg-fetch';
@@ -11,7 +11,17 @@ import { position } from 'polished';
 const Wrapper = styled('div')`
     position: relative;
     width: 100%;
-    transform: ${props => `scale(${props.scale})`};
+    height: 380px;
+`;
+
+const h100 = css`
+    height: 100%;
+    overflow: hidden;
+`;
+
+const absolute = css`
+    position: absolute;
+    top: 0;
 `;
 
 const btnPrev = css`
@@ -27,25 +37,42 @@ const btnNext = css`
     right: 0;
     z-index: 3;
 `;
+
+const slideHidden = css`
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:  opacity 0.3s ease-in-out;
+`;
+
+const slideVisible = css`
+    width: auto;
+    opactity: 1;
+    transition:  opacity 0.3s ease-in-out;
+`;
 export default class Carousel extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            isLoading: false,
             cities: [],
             currentIndex: 0,
-            city: {},
         };
     }
 
     async componentDidMount() {
-        const { currentIndex } = this.state;
+        const { isLoading } = this.state;
+        this.setState({
+            isLoading: !isLoading,
+        });
         let response = await fetch('https://recruitment.theasiadev.com/Cities/getCitySlider');
         let json = await response.json();
         const { cities } = json;
         this.setState({
             cities,
-            city: cities[currentIndex],
+            isLoading: !isLoading,
         });
 
         response = await fetch('http://api.openweathermap.org/data/2.5/group?id=1609350,1614295,1583992,1846266,1153671,1153669,1880252,1151254,1152633,1822214,1821306,1831142,1581130,1566083,1835848,1838524,1580541&APPID=2aedec2b406f52785990885fab552198');
@@ -54,19 +81,19 @@ export default class Carousel extends Component {
         console.log(citiesWeather);
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    /* componentDidUpdate(prevProps, prevState) {
         const { currentIndex } = this.state;
         if (prevState.currentIndex !== currentIndex) {
             this.updateCity();
         }
-    }
+    } */
 
-    updateCity = () => {
+    /*     updateCity = () => {
         const { cities, currentIndex } = this.state;
         this.setState({
             city: cities[currentIndex],
         });
-    }
+    } */
 
     handlePrev = () => {
         this.setState(prevState => ({
@@ -81,13 +108,26 @@ export default class Carousel extends Component {
     }
 
     render() {
-        const { cities, city, currentIndex } = this.state;
-        const { scale, opacity } = this.props;
+        const { cities, currentIndex } = this.state;
         if (!cities || cities.length === 0) return <Loading />;
         return (
             <Container className="container">
-                <Wrapper className="carousel-wrapper" scale={scale} opacity={opacity}>
-                    <Screen {...city} />
+                <Wrapper className="carousel-wrapper">
+                    <List className={h100} none>
+                        {cities.map((city, i) => (
+                            <li
+                                className={`${(i === currentIndex) ? slideVisible : slideHidden} ${absolute}`}
+                                key={city.id}
+                                {...this.props}
+                            >
+                                <Screen
+                                    active={i === currentIndex}
+                                    {...city}
+                                    {...this.props}
+                                />
+                            </li>
+                        ))}
+                    </List>
                     <Button
                         className={`${btnPrev} previous`}
                         transparent

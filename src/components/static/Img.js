@@ -1,7 +1,5 @@
-import React from 'react';
 import styled from 'react-emotion';
-import LazyLoad from 'react-lazyload';
-import { mediaQueries } from '../../css/variables';
+import { mediaQueries } from 'css/variables';
 
 export const Img = styled('img')`
     width: 100%;
@@ -13,6 +11,8 @@ export const Img = styled('img')`
 
 export const ImageWrapper = styled('span')`
     display: inline-block;
+    position: relative;
+    z-index: 3;
     overflow: hidden;
     vertical-align: middle;
     width: 44.4%;

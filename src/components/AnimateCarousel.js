@@ -1,6 +1,6 @@
 import React from 'react';
 import { Motion, spring } from 'react-motion';
-import Carousel from 'components/Carousel';
+import MainImage from './MainImage';
 
 export default props => (
     <Motion
@@ -10,6 +10,6 @@ export default props => (
             opacity: spring(1, { stiffness: 60, damping: 20 }),
         }}
     >
-        {interpolatedStyle => <Carousel scale={interpolatedStyle.scale} {...props} />}
+        {interpolatedStyle => <MainImage scale={interpolatedStyle.scale} {...props} />}
     </Motion>
 );

@@ -117,6 +117,20 @@ export const justify = css`
     text-align: justify;
 `;
 
+export const lsNone = css`
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+`;
+
+export const lsBullet = css`
+    list-style: bullet;
+`;
+
+export const lsSquare = css`
+    list-style: square;
+`;
+
 export const uppercase = css`
     text-transform: uppercase;
 `;

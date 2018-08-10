@@ -9,6 +9,10 @@ const absBottom = css`
     bottom: 36px;
     left: 55px;
 
+    ${mediaQueries.tablet} {
+        left: 36px;
+    }
+
     ${mediaQueries.tabletS} {
         position: relative;
         left: 0;

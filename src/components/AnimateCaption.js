@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Motion, spring } from 'react-motion';
-import MainImage from 'components/MainImage';
+import Caption from 'components/Caption';
 
-const AnimateImage = (props) => {
+const AnimateCaption = (props) => {
     const { active } = props;
     return (
         <Motion
-            defaultStyle={{ x: 1200, opacity: 0 }}
+            defaultStyle={{ x: -1200, opacity: 0 }}
             style={{
-                x: spring(MainImage && active ? 0 : 1200),
-                opacity: spring(MainImage && active ? 1 : 0),
+                x: spring(active ? 0 : -1200, { stiffness: 60, damping: 30 }),
+                opacity: spring(active ? 1 : 0, { stiffness: 60, damping: 30 }),
             }}
         >
             {style => (
-                <MainImage
+                <Caption
                     style={{
                         transform: `translateX(${style.x}px)`,
                         opacity: style.opacity,
@@ -26,8 +26,8 @@ const AnimateImage = (props) => {
     );
 };
 
-AnimateImage.propTypes = {
+AnimateCaption.propTypes = {
     active: PropTypes.bool.isRequired,
 };
 
-export default AnimateImage;
+export default AnimateCaption;

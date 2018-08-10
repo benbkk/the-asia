@@ -22,6 +22,7 @@ injectGlobal`
         height: 100%;
         font-size: ${rem('16px', '16px')};
         min-width: 320px;
+        max-width: 100%;
         ${family.raleway};
         -webkit-font-smoothing: auto;
         -moz-osz-font-smoothing: auto;
@@ -31,6 +32,7 @@ injectGlobal`
     body {
         height: inherit;
         min-width: inherit;
+        max-width: 100%;
         color: ${palette.bodyText};
     }
 
@@ -73,9 +75,11 @@ injectGlobal`
     #app,
     .app-wrapper {
         height: inherit;
+        overflow: scroll;
     }
 
     #app {
+        overflow: scroll;
         @supports(padding: max(0px)) {
             padding-left: max(16px, env(safe-area-inset-left));
             padding-right: max(16px, env(safe-area-inset-right));
