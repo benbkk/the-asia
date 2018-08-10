@@ -1,6 +1,6 @@
 import React from 'react';
 import AnimateImage from 'components/AnimateImage';
-import { Img, ImageWrapper } from 'static/Img';
+import MainImage from 'components/MainImage';
 import { Text } from 'static/Elements';
 import styled, { css } from 'react-emotion';
 import { rem, transparentize } from 'polished';
@@ -59,17 +59,14 @@ const bold700 = css`
     font-weight: 700;
 `;
 
-export default ({...city}) => {
+export default ({props, ...city}) => {
     const { name, main_image, description } = city;
     return (
         <Screen className="screen">
-            <AnimateImage>
-
-                <Img
-                    src={main_image}
-                    alt={name}
-                    />
-            </AnimateImage>    
+            <AnimateImage
+                src={main_image}
+                alt={name}
+            />
             <Caption>
                 <h2 className={`${mt0} ${bold700} headline`}>
                     {name}

@@ -1,24 +1,24 @@
 import React from 'react';
 import { Motion, spring } from 'react-motion';
-import { ImageWrapper } from 'static/Img';
+import MainImage from 'components/MainImage';
 
 export default props => (
     <Motion
         defaultStyle={{y: -500, opacity: 0}}
         style={{
-            y: spring(ImageWrapper ? 0 : -500),
-            opacity: spring(ImageWrapper ? 1 : 0)
+            y: spring(MainImage ? 0 : -500),
+            opacity: spring(MainImage ? 1 : 0)
         }}
         {...props}
     >
         {style => (
-            <ImageWrapper
+            <MainImage
                 style={{
                     transform: `translateY(${style.y}px)`,
                     opacity: style.opacity,
-                }}>
-                {props.children}
-            </ImageWrapper>
+                }}
+                {...props}
+            />
         )}
     </Motion>
 );
