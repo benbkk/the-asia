@@ -7,19 +7,23 @@ const AnimateImage = (props) => {
     const { active } = props;
     return (
         <Motion
-            defaultStyle={{ x: 1200, opacity: 0 }}
+            defaultStyle={{ x: 1200, opacity: 0, scale: 6 }}
             style={{
-                x: spring(MainImage && active ? 0 : 1200),
-                opacity: spring(MainImage && active ? 1 : 0),
+                scale: spring(MainImage && active ? 1 : 6, { stiffness: 60, damping: 10 }),
+                x: spring(MainImage && active ? 0 : 1200,  { stiffness: 60, damping: 20 }),
+                opacity: spring(MainImage && active ? 1 : 0,  { stiffness: 60, damping: 20 }),
+                
             }}
         >
             {style => (
                 <MainImage
                     style={{
+                        scale: style.scale,
                         transform: `translateX(${style.x}px)`,
                         opacity: style.opacity,
                     }}
-                    {...props}
+                    src={props.src}
+                    alt={props.alt}
                 />
             )}
         </Motion>

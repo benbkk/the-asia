@@ -4,13 +4,13 @@ import { Motion, spring } from 'react-motion';
 import Caption from 'components/Caption';
 
 const AnimateCaption = (props) => {
-    const { active } = props;
+    const { active, name, description } = props;
     return (
         <Motion
-            defaultStyle={{ x: -1200, opacity: 0 }}
+            defaultStyle={{ x: -800, opacity: 0 }}
             style={{
-                x: spring(active ? 0 : -1200, { stiffness: 60, damping: 30 }),
-                opacity: spring(active ? 1 : 0, { stiffness: 60, damping: 30 }),
+                x: spring(active ? 0 : -800, { stiffness: 60, damping: 20 }),
+                opacity: spring(active ? 1 : 0, { stiffness: 60, damping: 10 }),
             }}
         >
             {style => (
@@ -19,7 +19,8 @@ const AnimateCaption = (props) => {
                         transform: `translateX(${style.x}px)`,
                         opacity: style.opacity,
                     }}
-                    {...props}
+                    name={name}
+                    description={description}
                 />
             )}
         </Motion>

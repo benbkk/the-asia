@@ -7,11 +7,17 @@ import Button from 'static/Button';
 import 'whatwg-fetch';
 import styled, { css } from 'react-emotion';
 import { position } from 'polished';
+import { mediaQueries } from '../css/variables';
 
 const Wrapper = styled('div')`
     position: relative;
-    width: 100%;
-    height: 380px;
+    max-width: 100%;
+    overflow: hidden;
+    height: 420px;
+
+    ${mediaQueries.tabletS} {
+        overflow: initial;
+    }
 `;
 
 const h100 = css`

@@ -27,6 +27,7 @@ injectGlobal`
         -webkit-font-smoothing: auto;
         -moz-osz-font-smoothing: auto;
         text-rendering: optimizedLegibility;
+        overflow: hidden;
     }
 
     body {
@@ -34,6 +35,7 @@ injectGlobal`
         min-width: inherit;
         max-width: 100%;
         color: ${palette.bodyText};
+        overflow: hidden;
     }
 
     h1,

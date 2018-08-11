@@ -18,7 +18,7 @@ export const ImageWrapper = styled('span')`
     width: 44.4%;
     height: 380px;
     border-radius: 4px;
-    box-shadow: 30px 10px 50px 0 rgba(1,121,255,.1), 10px 10px 50px 0 rgba(0,0,0,.2);
+    box-shadow: 30px 0px 50px 0 rgba(1,121,255,.1), 10px 0px 50px 0 rgba(0,0,0,.2);
     
     ${mediaQueries.tabletS} {
         display: block;
