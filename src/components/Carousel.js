@@ -6,14 +6,14 @@ import Icon from 'static/Icons';
 import Button from 'static/Button';
 import 'whatwg-fetch';
 import styled, { css } from 'react-emotion';
-import { position } from 'polished';
-import { mediaQueries } from '../css/variables';
+import { position, clearFix } from 'polished';
+import { mediaQueries } from 'css/variables';
 
 const Wrapper = styled('div')`
     position: relative;
     max-width: 100%;
     overflow: hidden;
-    height: 420px;
+    min-height: 480px;
 
     ${mediaQueries.tabletS} {
         overflow: initial;
@@ -21,7 +21,7 @@ const Wrapper = styled('div')`
 `;
 
 const h100 = css`
-    height: 100%;
+    ${clearFix()};
     overflow: hidden;
 `;
 
