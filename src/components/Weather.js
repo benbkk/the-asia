@@ -12,7 +12,7 @@ const WeatherWrapper = styled('span')`
 `;
 
 const transformDown = css`
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 `;
 
 const Weather = (props) => {
@@ -26,7 +26,7 @@ const Weather = (props) => {
             <span
                 className={`${inlineBlock} ${vmiddle} ${textHuge} temperature`}
             >
-                {`${Math.ceil(temp)} C`}
+                {`${Math.ceil(temp)}`}&deg;C
             </span>
             <span
                 className={`${block} ${right} description`}
