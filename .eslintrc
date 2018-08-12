@@ -10,6 +10,7 @@
         "indent":["error", 4],
         "import/no-unresolved": [2, { "commonjs": true }],
         "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
+        "react/forbid-prop-types": ["off"],
         "react/jsx-indent-props":["enabled", 4, "tab"],
         "react/jsx-indent":["enabled", 4, "tab"],
         "react/jsx-filename-extension": 

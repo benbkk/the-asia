@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import Loading from 'static/Loader';
 import Screen from 'components/Screen';
-import WeatherTime from 'components/Weather';
 import { Container, List, CarouselWrapper } from 'static/Elements';
 import Icon from 'static/Icons';
 import Button, { btnNext, btnPrev } from 'static/Button';
 import 'whatwg-fetch';
 import { css } from 'react-emotion';
-import { clearFix } from 'polished';
 import { getWeather } from '../api';
-
-const h100 = css`
-    ${clearFix()};
-    overflow: hidden;
-`;
 
 const absolute = css`
     position: absolute;
@@ -57,8 +50,8 @@ export default class Carousel extends Component {
         const { cities } = json;
 
         const weatherData = await getWeather();
-        const weather = await weatherData.find(weatherCity => weatherCity.place === cities[currentIndex].name);
-        
+        const weather = await weatherData
+            .find(weatherCity => weatherCity.place === cities[currentIndex].name);
 
         this.setState({
             cities,
@@ -69,16 +62,19 @@ export default class Carousel extends Component {
         });
     }
 
-    async componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps, prevState) {
         const { weatherData, city } = this.state;
-        
+
         if (prevState.city !== city) {
-            const weather = await weatherData.find(weatherCity => weatherCity.place === city.name);
-            console.log(weather);
-            this.setState({
-                weather,
-            })
+            const weather = weatherData.find(weatherCity => weatherCity.place === city.name);
+            this.updateWeather(weather);
         }
+    }
+
+    updateWeather = (weather) => {
+        this.setState({
+            weather,
+        });
     }
 
     handlePrev = () => {

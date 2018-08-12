@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Motion, spring } from 'react-motion';
 import Caption from 'components/Caption';
 
-const AnimateCaption = ({ active, name, description }) => {
+const AnimateCaption = (props) => {
+    const { active } = props;
     return (
         <Motion
             defaultStyle={{ x: -800, opacity: 0 }}
@@ -18,8 +19,7 @@ const AnimateCaption = ({ active, name, description }) => {
                         transform: `translateX(${style.x}px)`,
                         opacity: style.opacity,
                     }}
-                    name={name}
-                    description={description}
+                    {...props}
                 />
             )}
         </Motion>
@@ -28,8 +28,6 @@ const AnimateCaption = ({ active, name, description }) => {
 
 AnimateCaption.propTypes = {
     active: PropTypes.bool.isRequired,
-    description: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
 };
 
 export default AnimateCaption;

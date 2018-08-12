@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AnimateCaption from 'components/AnimateCaption';
+import Loading from 'static/Loader';
 import styled from 'react-emotion';
 import { rem } from 'polished';
 import AnimateImage from './AnimateImage';
@@ -14,28 +15,39 @@ const Figure = styled('figure')`
     display: table;
 `;
 
-const Screen = ({active, city, style}) => {
+const Screen = (props) => {
+    const { city, active } = props;
     const { name, main_image, description } = city;
     return (
-        <Figure className="screen">
-            <AnimateImage
-                src={main_image}
-                alt={name}
-                active={active}
-                style={style}
-            />
-            <AnimateCaption
-                name={name}
-                description={description}
-                active={active}
-                style={style}
-            />
-        </Figure>
+        <React.Fragment>
+            { !active
+                ? <Loading />
+                : (
+                    <Figure
+                        className="screen"
+                    >
+                        <AnimateImage
+                            src={main_image}
+                            alt={name}
+                            active={active}
+                            {...props}
+                            
+                        />
+                        <AnimateCaption
+                            name={name}
+                            description={description}
+                            active={active}
+                        />
+                    </Figure>
+                )
+            }
+        </React.Fragment>
     );
 };
 
 Screen.propTypes = {
     active: PropTypes.bool.isRequired,
+    city: PropTypes.object.isRequired,
 };
 
 export default Screen;
