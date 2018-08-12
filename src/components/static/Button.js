@@ -61,10 +61,12 @@ export default styled('button')`
 `;
 
 export const btnPrev = css`
-    ${position('absolute', '0')};
+    position: absolute;
+    top: 0;
+    bottom: 0;
     left: 0;
     z-index: 3;
-    margin: 0;
+    margin: auto;
 `;
 
 export const btnNext = css`
@@ -73,5 +75,5 @@ export const btnNext = css`
     bottom: 0;
     right: 0;
     z-index: 3;
-    margin: 0;
+    margin: auto;
 `;
