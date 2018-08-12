@@ -16,11 +16,11 @@ import {
 } from 'css/utilities';
 
 export const CarouselWrapper = styled('div')`
+    width: 100vw;
     position: relative;
     max-width: 100%;
     overflow: hidden;
     min-height: 480px;
-    margin: 36px 0;
 
     ${mediaQueries.tabletS} {
         overflow: initial;
@@ -68,9 +68,8 @@ export const List = styled('ul')`
     })}
     max-width: 100%;
     overflow-x: hidden;
-    margin-left: 0;
+    margin: 0;
     padding-left: 0;
-    margin-bottom: 18px;
 `;
 
 export const ListItem = styled('li')`

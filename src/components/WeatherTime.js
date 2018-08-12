@@ -15,7 +15,7 @@ const WeatherTime = (props) => {
     const { weather } = props;
     const { temp, desc, time } = weather;
     return (
-        <WeatherTimeWrapper className={`${absTopRight}`}>
+        <WeatherTimeWrapper className={`${absTopRight} ${gradientBlackShade}`}>
             <Weather temp={temp} desc={desc} />
             <Time time={time} />
         </WeatherTimeWrapper>

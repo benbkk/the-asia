@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import Loading from 'static/Loader';
 import Screen from 'components/Screen';
 import { Container, List, CarouselWrapper } from 'static/Elements';
+import { darken } from 'polished';
 import Icon from 'static/Icons';
 import Button, { btnNext, btnPrev } from 'static/Button';
 import 'whatwg-fetch';
 import { css } from 'react-emotion';
+import { palette } from 'css/variables';
 import { getWeather } from '../api';
 
 const absolute = css`
@@ -96,41 +98,64 @@ export default class Carousel extends Component {
     render() {
         const { cities, currentIndex, weather } = this.state;
         if (!cities || cities.length === 0) return <Loading />;
+        const screenImg = cities[currentIndex].main_image;
+        const bgCarousel = css`
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                background: url(${screenImg}) center no-repeat;
+                background-size: cover;
+                background-blend-mode: multiply;
+                width: 100%;
+                height: 100%;
+                filter: grayscale(90%);
+                opacity: 0.15;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: ${darken(0.05, palette.green)};
+                background-blend-mode: overlay;
+            }
+        `;
         return (
-            <Container className="container">
-                <CarouselWrapper className="carousel-wrapper">
-                    <List none>
-                        {cities.map((city, i) => (
-                            <li
-                                className={`${(i === currentIndex) ? slideVisible : slideHidden} ${absolute}`}
-                                key={city.id}
-                            >
-                                <Screen
-                                    active={i === currentIndex}
-                                    city={city}
-                                    weather={weather}
-                                />
-                            </li>
-                        ))}
-                    </List>
-                    <Button
-                        className={`${btnPrev} previous`}
-                        transparent
-                        onClick={this.handlePrev}
-                        disabled={currentIndex === 0}
-                    >
-                        <Icon name="back" green />
-                    </Button>
-                    <Button
-                        className={`${btnNext} next`}
-                        transparent
-                        onClick={this.handleNext}
-                        disabled={currentIndex === cities.length - 1}
-                    >
-                        <Icon name="next" green />
-                    </Button>
-                </CarouselWrapper>
-            </Container>
+           <CarouselWrapper className={`carousel-wrapper ${bgCarousel}`}>
+                <List none>
+                    {cities.map((city, i) => (
+                        <li
+                            className={`${(i === currentIndex) ? slideVisible : slideHidden} ${absolute}`}
+                            key={city.id}
+                        >
+                            <Screen
+                                active={i === currentIndex}
+                                city={city}
+                                weather={weather}
+                            />
+                        </li>
+                    ))}
+                </List>
+                <Button
+                    className={`${btnPrev} previous`}
+                    transparent
+                    onClick={this.handlePrev}
+                    disabled={currentIndex === 0}
+                >
+                    <Icon name="back" green />
+                </Button>
+                <Button
+                    className={`${btnNext} next`}
+                    transparent
+                    onClick={this.handleNext}
+                    disabled={currentIndex === cities.length - 1}
+                >
+                    <Icon name="next" green />
+                </Button>
+            </CarouselWrapper>
         );
     }
 }

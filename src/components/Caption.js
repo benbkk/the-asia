@@ -25,7 +25,7 @@ const FigCaption = styled('figcaption')`
         height: ${rem('340px', '16px')};
         padding: ${rem('36px', '16px')} ${rem('36px', '16px')} ${rem('36px', '16px')} ${rem('45px', '16px')};
         border-radius: 0 4px 4px 0;
-        background: ${transparentize(0.25, palette.white)};
+        background: ${palette.white};
         box-shadow: 5px 10px 50px 0 rgba(1,121,255,.1),5px 10px 50px 0 rgba(0,0,0,.2);
 
         ${mediaQueries.tablet} {

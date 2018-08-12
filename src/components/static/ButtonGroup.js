@@ -18,10 +18,10 @@ export default () => (
         <Button outlineGreen>
             Tours
         </Button>
-        <Button outlineGrayLightest>
+        <Button outlineGrayLightest disabled>
             Attractions
         </Button>
-        <Button outlineGrayLightest>
+        <Button outlineGrayLightest disabled>
             Transport
         </Button>
     </Wrapper>

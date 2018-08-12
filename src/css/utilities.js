@@ -123,7 +123,7 @@ export const outlineGreen = css`
 export const outlineGrayLightest = css`
     background-color: transparent;
     border: 1px solid ${darken(0.1, palette.grayLightest)};
-    color: ${darken(0.1, palette.grayLightest)};
+    color: ${darken(0.5, palette.grayLightest)};
 `;
 
 export const bgBlack = css`
@@ -249,11 +249,15 @@ export const gradientBlackShade = css`
         content: '';
         display: block;
         position: absolute;
-        width: 200px;
-        height: 200px;
+        width: 400px;
+        height: 400px;
+        top: -170%;
+        right: -100%;
+        opacity: 0.75;
+        background-blend-mode: darken;
         z-index: 0;
 
-        background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 19%, rgba(0,0,0,0.65) 32%, rgba(0,0,0,0) 67%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+        background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 19%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
         background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 19%,rgba(0,0,0,0.65) 32%,rgba(0,0,0,0) 67%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
         background: radial-gradient(ellipse at center, rgba(0,0,0,0.65) 19%,rgba(0,0,0,0.65) 32%,rgba(0,0,0,0) 67%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */ /* IE6-9 fallback on horizontal gradient */

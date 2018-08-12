@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import moment from 'moment';
 import { palette } from 'css/variables';
-import { textLg} from 'css/utilities';
+import { textLg } from 'css/utilities';
 
 const TimeWrapper = styled('span')`
     display: block;

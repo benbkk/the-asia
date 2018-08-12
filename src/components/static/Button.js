@@ -41,7 +41,7 @@ export default styled('button')`
     }
 
     &:disabled {
-        opacity: 0.25;
+        opacity: 0.5;
         cursor: default;
 
         &:active {
