@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
-import { inlineBlock, block, textHuge, vmiddle, right, vtop, mgrHalf } from 'css/utilities';
+import styled, { css } from 'react-emotion';
+import { inlineBlock, block, textHuge, vmiddle, right, vtop, mgrHalf, textLg} from 'css/utilities';
 import Icon from 'static/Icons';
 
 const WeatherWrapper = styled('span')`
     display: block;
     color: white;
+    position: relative;
+    line-height: 1;
+`;
+
+const transformDown = css`
+    transform: translateY(-5px);
 `;
 
 const Weather = (props) => {
@@ -14,11 +20,11 @@ const Weather = (props) => {
     const iconName = desc.toLowerCase();
     return (
         <WeatherWrapper>
-            <span className={`${inlineBlock} ${vtop} ${mgrHalf} weather-icon`}>
+            <span className={`${inlineBlock} ${vmiddle} ${mgrHalf} ${transformDown} weather-icon`}>
                 <Icon name={iconName} white huge />
             </span> 
             <span
-                className={`${inlineBlock} ${vtop} ${textHuge} temperature`}
+                className={`${inlineBlock} ${vmiddle} ${textHuge} temperature`}
             >
                 {`${Math.ceil(temp)} C`}
             </span>

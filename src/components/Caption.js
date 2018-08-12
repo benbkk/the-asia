@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { rem, transparentize } from 'polished';
-import { palette } from 'css/variables';
-import { mt0, gradientPseudo } from 'css/utilities';
+import { mediaQueries, palette } from 'css/variables';
+import { mt0, gradientPseudo, block, textSm } from 'css/utilities';
 import ButtonGroup from 'static/ButtonGroup';
 import PackagePrice from 'static/PackagePrice';
 import { Text } from 'static/Elements';
-import { mediaQueries } from '../css/variables';
 
 const FigCaption = styled('figcaption')`
     display: table-cell;
@@ -15,6 +14,13 @@ const FigCaption = styled('figcaption')`
     z-index: 2;
     position: relative;
 
+    h2 {
+        margin-bottom: 18px;
+    }
+    h2 .country {
+        line-height: 1;
+        font-weight: 400;
+    }
     .content-wrap {
         height: ${rem('340px', '16px')};
         padding: ${rem('36px', '16px')} ${rem('36px', '16px')} ${rem('36px', '16px')} ${rem('45px', '16px')};
@@ -64,7 +70,6 @@ const bold700 = css`
 `;
 
 const Caption = (props) => {
-    console.log(props);
     const { description, name, style, weather } = props;
     return (
         <FigCaption
@@ -73,8 +78,9 @@ const Caption = (props) => {
             <div className="content-wrap">
                 <h2 className={`${mt0} ${bold700} headline`}>
                     {name}
-                    {weather &&  <span className="country">{ weather.country }</span>}
+                    {weather &&  <span className={`${block} ${textSm} country`}>{ weather.country }</span>}
                 </h2>
+                
                 <TextWrapper className={gradientPseudo}>
                     <Text className={`${textOverflow}`} textJustify small>
                         {description}

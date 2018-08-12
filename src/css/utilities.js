@@ -8,6 +8,10 @@ export const textSm = css`
     font-size: ${rem('14px', '16px')};
 `;
 
+export const textLg = css`
+    font-size: ${rem('20px', '16px')};
+`;
+
 export const textHuge = css`
     font-size: ${rem('45px', '16px')};
 `;
@@ -237,5 +241,21 @@ export const gradientPseudo = css`
         background-clip: border-box;
         -webkit-background-size: auto auto;
         background-size: auto auto;
+    }
+`;
+
+export const gradientBlackShade = css`
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        z-index: 0;
+
+        background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 19%, rgba(0,0,0,0.65) 32%, rgba(0,0,0,0) 67%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+        background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 19%,rgba(0,0,0,0.65) 32%,rgba(0,0,0,0) 67%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(ellipse at center, rgba(0,0,0,0.65) 19%,rgba(0,0,0,0.65) 32%,rgba(0,0,0,0) 67%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */ /* IE6-9 fallback on horizontal gradient */
     }
 `;

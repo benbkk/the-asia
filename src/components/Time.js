@@ -3,19 +3,22 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import moment from 'moment';
 import { palette } from 'css/variables';
+import { textLg} from 'css/utilities';
 
 const TimeWrapper = styled('span')`
     display: block;
     color: ${palette.white};
     text-align: right;
-    
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
 `;
 
 const Time = (props) => {
     const { time } = props;
     const readableTime = moment(new Date(time)).format('LT');
     return (
-        <TimeWrapper>
+        <TimeWrapper className={textLg}>
             { readableTime }
         </TimeWrapper>
     );
