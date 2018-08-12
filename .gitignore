@@ -68,3 +68,6 @@ typings/
 
 # Serverless directories
 .serverless
+
+# Apple
+.DS_Store

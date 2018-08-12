@@ -55,6 +55,7 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-emotion": "^9.2.4",
+    "react-imgix": "^7.2.0",
     "react-lazyload": "^2.3.0",
     "react-motion": "^0.5.2",
     "react-redux": "^5.0.7",

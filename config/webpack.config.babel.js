@@ -58,7 +58,10 @@ export default {
                     {
                         loader: 'html-loader',
                         options: {
-                            attrs: ['img:src'],
+                            attrs: [
+                                'img:src',
+                                'img:srcset',
+                            ],
                         },
                     },
                 ],
