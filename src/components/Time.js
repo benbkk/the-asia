@@ -9,7 +9,6 @@ const TimeWrapper = styled('span')`
     display: block;
     color: ${palette.white};
     text-align: right;
-    font-weight: 700;
     position: relative;
     z-index: 2;
 `;
