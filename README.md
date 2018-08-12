@@ -6,6 +6,11 @@ A very basic content slider built as react component. Just react without all the
 - Emotion CSS
 - Polished JS
 
+## Updates 13/Aug/2018
+- Added weather info from openweather
+- A bit more with react-motion
+- Imgix
+
 ## Getting Started
 
 ```
