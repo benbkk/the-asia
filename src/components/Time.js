@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import moment from 'moment';
+import { palette } from 'css/variables';
 
 const TimeWrapper = styled('span')`
     display: block;
+    color: ${palette.white};
+    text-align: right;
+    
 `;
 
 const Time = (props) => {

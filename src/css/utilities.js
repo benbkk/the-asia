@@ -7,6 +7,11 @@ import { palette, mediaQueries } from 'css/variables';
 export const textSm = css`
     font-size: ${rem('14px', '16px')};
 `;
+
+export const textHuge = css`
+    font-size: ${rem('45px', '16px')};
+`;
+
 export const absolute = css`
     position: absolute;
 `;
@@ -38,6 +43,10 @@ export const mb0 = css`
     margin-bottom: 0;
 `;
 
+export const mgrHalf = css`
+    margin: 0 9px 0 0;
+`;
+
 export const iconSm = css`
     ${size('12px')};
 `;
@@ -52,6 +61,10 @@ export const iconLg = css`
 
 export const iconXlg = css`
     ${size('36px')};  
+`;
+
+export const iconHuge = css`
+    ${size('54px')};
 `;
 
 export const bgGrayLightest = css`
@@ -126,9 +139,6 @@ export const center = css`
 
 export const right = css`
     text-align: right;
-    ${mediaQueries.mobile} {
-        text-align: left;
-    }
 `;
 
 export const justify = css`
