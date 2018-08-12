@@ -1,5 +1,6 @@
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 import propStyles from 'prop-styles';
+import { position } from 'polished';
 import {
     btnTransparent,
     bgBlack,
@@ -13,6 +14,7 @@ import { family } from 'css/variables';
 
 export default styled('button')`
     padding: 6px 8px;
+    font-size: 14px;
     display: inline-block;
     vertical-align: middle;
     border-color: transparent;
@@ -24,7 +26,8 @@ export default styled('button')`
     border-radius: 4px;
     cursor: pointer;
     transition: background-color, border-color 0.2s ease-in-out;
-    margin-right: 9px;
+    margin-right: 6px;
+    margin-bottom: 6px;
     -webkit-appearance: none;
 
     &:hover,
@@ -55,4 +58,20 @@ export default styled('button')`
         green: [bgGreen],
         black: [bgBlack],
     })};
+`;
+
+export const btnPrev = css`
+    ${position('absolute', '0')};
+    left: 0;
+    z-index: 3;
+    margin: 0;
+`;
+
+export const btnNext = css`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    margin: 0;
 `;

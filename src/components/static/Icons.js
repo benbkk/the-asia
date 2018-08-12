@@ -3,7 +3,7 @@ import styled from 'react-emotion';
 import propStyles from 'prop-styles';
 import PropTypes from 'prop-types';
 import {
-    iconSm, iconLg, fillBlack, fillWhite,
+    iconSm, iconLg, fillBlack, fillWhite, fillGreen,
 } from 'css/utilities';
 import { size } from 'polished';
 
@@ -38,6 +38,7 @@ const Path = styled('path')`
     ${propStyles({
         black: [fillBlack],
         white: [fillWhite],
+        green: [fillGreen],
     })};
 `;
 

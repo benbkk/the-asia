@@ -36,6 +36,10 @@ export const iconLg = css`
     ${size('24px')};  
 `;
 
+export const iconXlg = css`
+    ${size('36px')};  
+`;
+
 export const bgGrayLightest = css`
     background-color: ${palette.grayLightest};
     &:hover,
@@ -87,12 +91,12 @@ export const outlineGreen = css`
 
 export const outlineGrayLightest = css`
     background-color: transparent;
-    border: 1px solid ${palette.grayLightest};
-    color: ${palette.grayLightest};
+    border: 1px solid ${darken(0.1, palette.grayLightest)};
+    color: ${darken(0.1, palette.grayLightest)};
 `;
 
 export const bgBlack = css`
-    background-color: ${palette.black};
+#    background-color: ${palette.black};
 `;
 
 export const left = css`
@@ -181,6 +185,10 @@ export const fillBlack = css`
 
 export const fillWhite = css`
     fill: ${palette.white};
+`;
+
+export const fillGreen = css`
+    fill: ${palette.green};
 `;
 
 export const gradientPseudo = css`

@@ -1,7 +1,7 @@
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 import { mediaQueries } from 'css/variables';
 
-export const Img = styled('img')`
+export const Img = css`
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -10,12 +10,13 @@ export const Img = styled('img')`
 `;
 
 export const ImageWrapper = styled('span')`
-    display: inline-block;
+    display: table-cell;
+    vertical-align: middle;
     position: relative;
     z-index: 3;
     overflow: hidden;
     vertical-align: middle;
-    width: 44.4%;
+    width: 54%;
     height: 380px;
     border-radius: 4px;
     box-shadow: 30px 0px 50px 0 rgba(1,121,255,.1), 10px 0px 50px 0 rgba(0,0,0,.2);

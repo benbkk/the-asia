@@ -10,46 +10,53 @@ import { Text } from 'static/Elements';
 import { mediaQueries } from '../css/variables';
 
 const FigCaption = styled('figcaption')`
-    display: inline-block;
+    display: table-cell;
     vertical-align: middle;
-    padding: ${rem('36px', '16px')} ${rem('36px', '16px')} ${rem('36px', '16px')} ${rem('55px', '16px')}  ;
-    width: 48.3%;
-    border-radius: 0 4px 4px 0;
-    height: 335px;
     z-index: 2;
     position: relative;
-    background: ${transparentize(0.3, palette.white)};
-    box-shadow: 5px 10px 50px 0 rgba(1,121,255,.1),5px 10px 50px 0 rgba(0,0,0,.2);
 
-    ${mediaQueries.tablet} {
-        padding: ${rem('36px', '16px')};
+    .content-wrap {
+        height: ${rem('340px', '16px')};
+        padding: ${rem('36px', '16px')} ${rem('36px', '16px')} ${rem('36px', '16px')} ${rem('45px', '16px')};
+        border-radius: 0 4px 4px 0;
+        background: ${transparentize(0.25, palette.white)};
+        box-shadow: 5px 10px 50px 0 rgba(1,121,255,.1),5px 10px 50px 0 rgba(0,0,0,.2);
+
+        ${mediaQueries.tablet} {
+            height: auto;
+            padding: ${rem('28px', '16px')};
+        }
+
+        ${mediaQueries.tabletS} {
+            border-radius: 0 0 6px 6px;
+        }
+
+        ${mediaQueries.mobile} {
+            height: auto;
+            padding: ${rem('27px', '16px')};
+        }
     }
-    
+
     ${mediaQueries.tabletS} {
-        height: auto;
         width: 100%;
         display: block;
-        border-radius: 0 0 4px 4px;
-        padding: ${rem('27px', '16px')};
     }
+    
+    
 `;
 
 const TextWrapper = styled('span')`
     position: relative;
     display: block;
-    margin-bottom: 27px;
+    margin-bottom: 18px;
     z-index: 9;
 `;
 
 const textOverflow = css`
     height: 5rem;
+    padding-bottom: 18px;
     overflow: scroll;
     position: relative;
-    
-    ${mediaQueries.tabletS} {
-        height: auto;
-        overflow: visible;
-    }
 `;
 
 const bold700 = css`
@@ -57,19 +64,23 @@ const bold700 = css`
 `;
 
 const Caption = (props) => {
-    const { description, name } = props;
+    const { description, name, style } = props;
     return (
-        <FigCaption {...props}>
-            <h2 className={`${mt0} ${bold700} headline`}>
-                {name}
-            </h2>
-            <TextWrapper className={gradientPseudo}>
-                <Text className={`${textOverflow}`} textJustify small>
-                    {description}
-                </Text>
-            </TextWrapper>
-            <PackagePrice />
-            <ButtonGroup />
+        <FigCaption
+            style={style}
+        >
+            <div className="content-wrap">
+                <h2 className={`${mt0} ${bold700} headline`}>
+                    {name}
+                </h2>
+                <TextWrapper className={gradientPseudo}>
+                    <Text className={`${textOverflow}`} textJustify small>
+                        {description}
+                    </Text>
+                </TextWrapper>
+                <PackagePrice />
+                <ButtonGroup />
+            </div>
         </FigCaption>
     );
 };
@@ -77,6 +88,7 @@ const Caption = (props) => {
 Caption.propTypes = {
     description: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    style: PropTypes.object.isRequired,
 };
 
 export default Caption;

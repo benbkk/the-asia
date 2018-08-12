@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { hideText } from 'polished';
+import 'img/theasia.png';
 
 const A = styled('a')`
     display: block;
-    width: 204px;
-    height: 40px;
+    width: 180px;
+    height: 30px;
     background-image: url('img/theasia.png');
+    background-size: contain;
+    background-repeat: no-repeat;
     ${hideText()};
 `;
 

@@ -14,20 +14,21 @@ const Figure = styled('figure')`
     display: table;
 `;
 
-const Screen = (props) => {
-    const { active, ...city } = props;
+const Screen = ({active, city, style}) => {
     const { name, main_image, description } = city;
     return (
-        <Figure className="screen" {...props}>
+        <Figure className="screen">
             <AnimateImage
                 src={main_image}
                 alt={name}
-                {...props}
+                active={active}
+                style={style}
             />
             <AnimateCaption
                 name={name}
                 description={description}
-                {...props}
+                active={active}
+                style={style}
             />
         </Figure>
     );

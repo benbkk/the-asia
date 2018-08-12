@@ -18,7 +18,7 @@ const commonPriceStyling = css`
 
 const Symbol = styled('span')`
     ${commonPriceStyling};
-    font-size: ${rem('29px', '16px')}; 
+    font-size: ${rem('32px', '16px')}; 
     font-weight: 700;
 `;
 
@@ -30,7 +30,8 @@ const Price = styled('span')`
 
 const Currency = styled('span')`
     ${commonPriceStyling};
-    font-size: ${rem('20px', '16px')};
+    font-size: ${rem('18px', '16px')};
+    margin: 0 6px;
 `;
 
 export default () => (
@@ -40,13 +41,12 @@ export default () => (
         </Small>
         <Symbol className="symbol">
 $
-</Symbol>
+        </Symbol>
         <Price className="price">
 29.00
-</Price>
+        </Price>
         <Currency className="currency">
 USD
-</Currency>
+        </Currency>
     </Wrapper>
-)
-;
+);

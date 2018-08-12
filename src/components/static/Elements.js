@@ -1,7 +1,7 @@
-import styled from 'react-emotion';
-import { clearFix } from 'polished';
+import styled, { css } from 'react-emotion';
 import propStyles from 'prop-styles';
 import { mediaQueries } from 'css/variables';
+import { position, clearFix } from 'polished';
 import {
     block,
     inlineBlock,
@@ -14,6 +14,43 @@ import {
     lsBullet,
     lsSquare,
 } from 'css/utilities';
+
+export const CarouselWrapper = styled('div')`
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    min-height: 480px;
+    margin: 36px 0;
+
+    ${mediaQueries.tabletS} {
+        overflow: initial;
+    }
+`;
+
+export const h100 = css`
+    ${clearFix()};
+    overflow: hidden;
+`;
+
+export const absolute = css`
+    position: absolute;
+    top: 0;
+    padding: 36px 45px;
+`;
+
+export const slideHidden = css`
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:  opacity 0.3s ease-in-out;
+`;
+
+export const slideVisible = css`
+    width: auto;
+    opactity: 1;
+    transition:  opacity 0.3s ease-in-out;
+`;
 
 export const Container = styled('div')`
     padding: 0 2rem;
@@ -69,5 +106,5 @@ export const Text = styled('p')`
 export const Wrapper = styled('span')`
     display: block;
     ${clearFix()};
-    
+
 `;
