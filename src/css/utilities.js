@@ -7,6 +7,20 @@ import { palette, mediaQueries } from 'css/variables';
 export const textSm = css`
     font-size: ${rem('14px', '16px')};
 `;
+export const absolute = css`
+    position: absolute;
+`;
+
+export const absTop = css`
+    position: absolute;
+    top: 0;
+    margin: auto;
+`;
+
+export const absTopRight = css`
+    ${absTop};
+    right: 0;
+`;
 
 export const absCenter = css`
     ${position('absolute', 0)};

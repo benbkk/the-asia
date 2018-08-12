@@ -39,14 +39,8 @@ export default () => (
         <Small>
             Starting from
         </Small>
-        <Symbol className="symbol">
-$
-        </Symbol>
-        <Price className="price">
-29.00
-        </Price>
-        <Currency className="currency">
-USD
-        </Currency>
+        <Symbol className="symbol">$</Symbol>
+        <Price className="price">29.00</Price>
+        <Currency className="currency">USD</Currency>
     </Wrapper>
 );

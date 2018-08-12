@@ -64,7 +64,8 @@ const bold700 = css`
 `;
 
 const Caption = (props) => {
-    const { description, name, style } = props;
+    console.log(props);
+    const { description, name, style, weather } = props;
     return (
         <FigCaption
             style={style}
@@ -72,6 +73,7 @@ const Caption = (props) => {
             <div className="content-wrap">
                 <h2 className={`${mt0} ${bold700} headline`}>
                     {name}
+                    {weather &&  <span className="country">{ weather.country }</span>}
                 </h2>
                 <TextWrapper className={gradientPseudo}>
                     <Text className={`${textOverflow}`} textJustify small>
@@ -89,6 +91,11 @@ Caption.propTypes = {
     description: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     style: PropTypes.object.isRequired,
+    country: PropTypes.string,
+};
+
+Caption.defaultProps = {
+    country: '',
 };
 
 export default Caption;

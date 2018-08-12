@@ -37,6 +37,7 @@ const Screen = (props) => {
                             name={name}
                             description={description}
                             active={active}
+                            {...props}
                         />
                     </Figure>
                 )
