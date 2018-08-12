@@ -65,7 +65,8 @@ export const btnPrev = css`
     top: 0;
     bottom: 0;
     left: 0;
-    z-index: 3;
+    z-index: 5;
+    width: 40px;
     margin: auto;
 `;
 
@@ -74,6 +75,7 @@ export const btnNext = css`
     top: 0;
     bottom: 0;
     right: 0;
-    z-index: 3;
+    z-index: 5;
     margin: auto;
+    width: 40px;
 `;

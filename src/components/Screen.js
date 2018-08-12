@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AnimateCaption from 'components/AnimateCaption';
 import Loading from 'static/Loader';
+import { Container } from 'static/Elements';
 import styled from 'react-emotion';
 import { rem } from 'polished';
-import AnimateImage from './AnimateImage';
+import AnimateImage from 'components/AnimateImage';
 
 
 const Figure = styled('figure')`
@@ -19,7 +20,7 @@ const Screen = (props) => {
     const { city, active } = props;
     const { name, main_image, description } = city;
     return (
-        <React.Fragment>
+        <Container>
             { !active
                 ? <Loading />
                 : (
@@ -31,7 +32,6 @@ const Screen = (props) => {
                             alt={name}
                             active={active}
                             {...props}
-                            
                         />
                         <AnimateCaption
                             name={name}
@@ -42,7 +42,7 @@ const Screen = (props) => {
                     </Figure>
                 )
             }
-        </React.Fragment>
+        </Container>
     );
 };
 

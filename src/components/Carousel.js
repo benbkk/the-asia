@@ -106,8 +106,8 @@ export default class Carousel extends Component {
                 position: absolute;
                 background: url(${screenImg}) center no-repeat;
                 background-size: cover;
-                background-blend-mode: multiply;
-                width: 100%;
+                background-blend-mode: overlay;
+                width: 100vw;
                 height: 100%;
                 filter: grayscale(90%);
                 opacity: 0.15;
@@ -117,14 +117,13 @@ export default class Carousel extends Component {
                 content: '';
                 position: absolute;
                 display: block;
-                width: 100%;
+                width: 100vw;
                 height: 100%;
-                background: ${darken(0.05, palette.green)};
-                background-blend-mode: overlay;
+                background: ${palette.green};
             }
         `;
         return (
-           <CarouselWrapper className={`carousel-wrapper ${bgCarousel}`}>
+            <CarouselWrapper className={`carousel-wrapper ${bgCarousel}`}>
                 <List none>
                     {cities.map((city, i) => (
                         <li
@@ -145,7 +144,7 @@ export default class Carousel extends Component {
                     onClick={this.handlePrev}
                     disabled={currentIndex === 0}
                 >
-                    <Icon name="back" green />
+                    <Icon name="back" black />
                 </Button>
                 <Button
                     className={`${btnNext} next`}
@@ -153,7 +152,7 @@ export default class Carousel extends Component {
                     onClick={this.handleNext}
                     disabled={currentIndex === cities.length - 1}
                 >
-                    <Icon name="next" green />
+                    <Icon name="next" black />
                 </Button>
             </CarouselWrapper>
         );

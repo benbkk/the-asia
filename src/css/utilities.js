@@ -254,7 +254,7 @@ export const gradientBlackShade = css`
         top: -170%;
         right: -100%;
         opacity: 0.75;
-        background-blend-mode: darken;
+        background-blend-mode: multiply;
         z-index: 0;
 
         background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 19%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,0) 100%); /* FF3.6-15 */

@@ -18,9 +18,9 @@ import {
 export const CarouselWrapper = styled('div')`
     width: 100vw;
     position: relative;
-    max-width: 100%;
     overflow: hidden;
     min-height: 480px;
+    box-sizing: border-box;
 
     ${mediaQueries.tabletS} {
         overflow: initial;
