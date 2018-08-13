@@ -1,5 +1,19 @@
 import 'whatwg-fetch';
 
+export const getCitiesData = async () => {
+    try {
+        const response = await fetch('https://recruitment.theasiadev.com/Cities/getCitySlider');
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        const json = await response.json();
+        const { cities } = json;
+        return cities;
+    } catch (error) {
+        return error;
+    }
+};
+
 const CITY_IDS = [
     1609350, 1614295, 1583992, 1846266, 1153671, 1153669, 1880252, 1151254, 1152633, 1822214, 1821306, 1831142, 1581130, 1566083, 1835848, 1838524, 1580541,
 ];
@@ -14,4 +28,5 @@ export const getWeather = () => (
             country: item.sys.country,
             temp: item.main.temp,
             desc: item.weather[0].main,
-        }))));
+        })))
+);
