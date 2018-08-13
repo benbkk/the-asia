@@ -13,7 +13,28 @@
         }],
         ["@babel/preset-react"]
     ],
-
+    "env": {
+        "production": {
+                "plugins": [
+                    ["emotion",
+                        { 
+                            "hoist": true 
+                        }
+                    ]
+                ]
+            },
+            "development": {
+                "plugins": [
+                    [
+                        "emotion",
+                        { 
+                            "sourceMap": true,
+                            "autoLabel": true 
+                        }
+                    ]
+                ]
+            }
+        },
     "plugins": [
         ["@babel/plugin-transform-arrow-functions"], 
         ["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }],
