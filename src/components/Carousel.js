@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import Loading from 'static/Loader';
 import Screen from 'components/Screen';
-import { Container, List, CarouselWrapper } from 'static/Elements';
-import { darken } from 'polished';
+import { List, CarouselWrapper } from 'static/Elements';
 import Icon from 'static/Icons';
 import Button, { btnNext, btnPrev } from 'static/Button';
 import 'whatwg-fetch';
 import { css } from 'react-emotion';
-import { palette } from 'css/variables';
+import { palette, mediaQueries } from 'css/variables';
 import { getWeather } from '../api';
 
 const absolute = css`
     position: absolute;
     top: 0;
     padding: 36px 45px;
+
+    ${mediaQueries.tabletS} {
+        padding: 36px 0px;
+    }
 `;
 
 const slideHidden = css`
@@ -30,6 +33,7 @@ const slideVisible = css`
     width: 100%;
     opactity: 1;
     transition:  opacity 0.3s ease-in-out;
+    visibility: visible;
 `;
 export default class Carousel extends Component {
     constructor(props) {

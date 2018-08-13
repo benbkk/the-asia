@@ -5,8 +5,7 @@ export const Img = css`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    vertical-align: middle;
+    vertical-align: top;
 `;
 
 export const ImageWrapper = styled('span')`

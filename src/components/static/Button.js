@@ -68,6 +68,17 @@ export const btnPrev = css`
     z-index: 5;
     width: 40px;
     margin: auto;
+    opacity: 0.25;
+
+    &:hover,
+    &:active,
+    &:focus {
+        opacity: 1;
+    }
+
+    &:disabled {
+        opacity: 0.1;
+    }
 `;
 
 export const btnNext = css`
@@ -78,4 +89,15 @@ export const btnNext = css`
     z-index: 5;
     margin: auto;
     width: 40px;
+    opacity: 0.25;
+
+    &:hover,
+    &:active,
+    &:focus {
+        opacity: 1;
+    }
+
+    &:disabled {
+        opacity: 0.1;
+    }
 `;
