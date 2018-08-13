@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { rem, transparentize } from 'polished';
+import { rem } from 'polished';
 import { mediaQueries, palette } from 'css/variables';
-import { mt0, gradientPseudo, block, textSm } from 'css/utilities';
+import {
+    mt0, gradientPseudo, block, textSm,
+} from 'css/utilities';
 import ButtonGroup from 'static/ButtonGroup';
 import PackagePrice from 'static/PackagePrice';
 import { Text } from 'static/Elements';
@@ -30,7 +32,7 @@ const FigCaption = styled('figcaption')`
 
         ${mediaQueries.tablet} {
             height: auto;
-            padding: ${rem('28px', '16px')};
+            padding: ${rem('18px', '16px')}  ${rem('27px', '16px')};
         }
 
         ${mediaQueries.tabletS} {
@@ -47,8 +49,6 @@ const FigCaption = styled('figcaption')`
         width: 100%;
         display: block;
     }
-    
-    
 `;
 
 const TextWrapper = styled('span')`
@@ -70,7 +70,9 @@ const bold700 = css`
 `;
 
 const Caption = (props) => {
-    const { description, name, style, weather } = props;
+    const {
+        description, name, style, weather,
+    } = props;
     return (
         <FigCaption
             style={style}
@@ -78,9 +80,17 @@ const Caption = (props) => {
             <div className="content-wrap">
                 <h2 className={`${mt0} ${bold700} headline`}>
                     {name}
-                    {weather &&  <span className={`${block} ${textSm} country`}>{ weather.country }</span>}
+                    { weather
+                        && (
+                            <span
+                                className={`${block} ${textSm} country`}
+                            >
+                                { weather.country }
+                            </span>
+                        )
+                    }
                 </h2>
-                
+
                 <TextWrapper className={gradientPseudo}>
                     <Text className={`${textOverflow}`} textJustify small>
                         {description}
@@ -97,11 +107,11 @@ Caption.propTypes = {
     description: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     style: PropTypes.object.isRequired,
-    country: PropTypes.string,
+    weather: PropTypes.object,
 };
 
 Caption.defaultProps = {
-    country: '',
+    weather: {},
 };
 
 export default Caption;

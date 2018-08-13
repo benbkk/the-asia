@@ -1,6 +1,5 @@
 import styled, { css } from 'react-emotion';
 import propStyles from 'prop-styles';
-import { position } from 'polished';
 import {
     btnTransparent,
     bgBlack,
@@ -31,9 +30,12 @@ export default styled('button')`
     -webkit-appearance: none;
 
     &:hover,
-    &:focus,
     &:active {
         opacity: 1;
+    }
+
+    &:focus {
+        opacity: initial;
     }
 
     &:active {

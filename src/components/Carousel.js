@@ -1,40 +1,16 @@
 import React, { Component } from 'react';
 import Loading from 'static/Loader';
 import Screen from 'components/Screen';
-import { List, CarouselWrapper } from 'static/Elements';
+import {
+    List, CarouselWrapper, cityItem, slideVisible, slideHidden,
+} from 'static/Elements';
 import Icon from 'static/Icons';
 import Button, { btnNext, btnPrev } from 'static/Button';
 import 'whatwg-fetch';
 import { css } from 'react-emotion';
-import { palette, mediaQueries } from 'css/variables';
-import { getWeather } from '../api';
+import { palette } from 'css/variables';
+import { getCitiesData, getWeather } from '../api';
 
-const absolute = css`
-    position: absolute;
-    top: 0;
-    padding: 36px 45px;
-
-    ${mediaQueries.tabletS} {
-        padding: 36px 0px;
-    }
-`;
-
-const slideHidden = css`
-    width: 0;
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    visibility: hidden;
-`;
-
-const slideVisible = css`
-    width: 100%;
-    opactity: 1;
-    transition:  opacity 0.3s ease-in-out;
-    visibility: visible;
-`;
 export default class Carousel extends Component {
     constructor(props) {
         super(props);
@@ -51,20 +27,19 @@ export default class Carousel extends Component {
 
     async componentDidMount() {
         const { isLoading, currentIndex } = this.state;
-        const response = await fetch('https://recruitment.theasiadev.com/Cities/getCitySlider');
-        const json = await response.json();
-        const { cities } = json;
+        const cities = await getCitiesData();
+        const city = cities[currentIndex];
 
         const weatherData = await getWeather();
         const weather = await weatherData
             .find(weatherCity => weatherCity.place === cities[currentIndex].name);
 
         this.setState({
+            isLoading: !isLoading,
             cities,
-            city: cities[currentIndex],
+            city,
             weatherData,
             weather,
-            isLoading: !isLoading,
         });
     }
 
@@ -84,7 +59,12 @@ export default class Carousel extends Component {
     }
 
     handlePrev = () => {
-        const { cities } = this.state;
+        const { cities, currentIndex } = this.state;
+        if (currentIndex === 0) {
+            this.setState({
+                currentIndex: cities.length,
+            });
+        }
         this.setState(prevState => ({
             currentIndex: prevState.currentIndex - 1,
             city: cities[prevState.currentIndex - 1],
@@ -92,7 +72,12 @@ export default class Carousel extends Component {
     }
 
     handleNext = () => {
-        const { cities } = this.state;
+        const { cities, currentIndex } = this.state;
+        if (currentIndex === cities.length - 1) {
+            this.setState({
+                currentIndex: -1,
+            });
+        }
         this.setState(prevState => ({
             currentIndex: prevState.currentIndex + 1,
             city: cities[prevState.currentIndex + 1],
@@ -131,7 +116,7 @@ export default class Carousel extends Component {
                 <List none>
                     {cities.map((city, i) => (
                         <li
-                            className={`${(i === currentIndex) ? slideVisible : slideHidden} ${absolute}`}
+                            className={`${(i === currentIndex) ? slideVisible : slideHidden} ${cityItem}`}
                             key={city.id}
                         >
                             <Screen
@@ -146,7 +131,7 @@ export default class Carousel extends Component {
                     className={`${btnPrev} previous`}
                     transparent
                     onClick={this.handlePrev}
-                    disabled={currentIndex === 0}
+                    // disabled={currentIndex === 0}
                 >
                     <Icon name="back" black />
                 </Button>
@@ -154,7 +139,7 @@ export default class Carousel extends Component {
                     className={`${btnNext} next`}
                     transparent
                     onClick={this.handleNext}
-                    disabled={currentIndex === cities.length - 1}
+                    // disabled={currentIndex === cities.length - 1}
                 >
                     <Icon name="next" black />
                 </Button>

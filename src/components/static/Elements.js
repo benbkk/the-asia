@@ -1,7 +1,7 @@
 import styled, { css } from 'react-emotion';
 import propStyles from 'prop-styles';
 import { mediaQueries } from 'css/variables';
-import { position, clearFix } from 'polished';
+import { clearFix } from 'polished';
 import {
     block,
     inlineBlock,
@@ -27,6 +27,33 @@ export const CarouselWrapper = styled('div')`
     }
 `;
 
+export const slideHidden = css`
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+`;
+
+export const slideVisible = css`
+    width: 100%;
+    opactity: 1;
+    transition:  opacity 0.3s ease-in-out;
+    visibility: visible;
+`;
+
+export const cityItem = css`
+    position: absolute;
+    top: 0;
+    padding: 36px 45px;
+
+    ${mediaQueries.tabletS} {
+        padding: 36px 0px;
+    }
+`;
+
 export const h100 = css`
     ${clearFix()};
     overflow: hidden;
@@ -36,20 +63,6 @@ export const absolute = css`
     position: absolute;
     top: 0;
     padding: 36px 45px;
-`;
-
-export const slideHidden = css`
-    width: 0;
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition:  opacity 0.3s ease-in-out;
-`;
-
-export const slideVisible = css`
-    width: auto;
-    opactity: 1;
-    transition:  opacity 0.3s ease-in-out;
 `;
 
 export const Container = styled('div')`

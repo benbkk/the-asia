@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
-import { absTopRight, gradientBlackShade, blend, fontLg } from 'css/utilities';
+import { absTopRight, gradientBlackShade } from 'css/utilities';
 import Weather from 'components/Weather';
 import Time from 'components/Time';
 

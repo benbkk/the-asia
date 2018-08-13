@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { inlineBlock, block, textHuge, vmiddle, right, mgrHalf } from 'css/utilities';
+import {
+    inlineBlock, block, textHuge, vmiddle, right, mgrHalf,
+} from 'css/utilities';
 import Icon from 'static/Icons';
 
 const WeatherWrapper = styled('span')`
