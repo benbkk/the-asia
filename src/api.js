@@ -19,7 +19,7 @@ const CITY_IDS = [
 ];
 
 export const getWeather = () => (
-    fetch(`http://api.openweathermap.org/data/2.5/group?id=${CITY_IDS}&units=metric&APPID=2aedec2b406f52785990885fab552198`)
+    fetch(`//api.openweathermap.org/data/2.5/group?id=${CITY_IDS}&units=metric&APPID=2aedec2b406f52785990885fab552198`)
         .then(response => response.json())
         .then(json => json.list)
         .then(list => list.map(item => ({
