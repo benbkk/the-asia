@@ -28,7 +28,7 @@ class MainImage extends Component {
             return (
                 <ImageWrapper
                     className="image-wrapper"
-                    style={{ transform: style.transform }}
+                    style={style}
                 >
                     { !isLoaded && <Loading /> }
                     <LazyLoadImage

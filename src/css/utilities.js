@@ -251,15 +251,12 @@ export const gradientBlackShade = css`
         position: absolute;
         width: 400px;
         height: 400px;
-        top: -170%;
-        right: -100%;
+        top: -50%;
+        right: -50%;
         opacity: 0.75;
-        background-blend-mode: multiply;
-        z-index: 0;
+       
 
-        background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 19%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-        background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 19%,rgba(0,0,0,0.65) 32%,rgba(0,0,0,0) 67%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: radial-gradient(ellipse at center, rgba(0,0,0,0.65) 19%,rgba(0,0,0,0.65) 32%,rgba(0,0,0,0) 67%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */ /* IE6-9 fallback on horizontal gradient */
+        background-image: radial-gradient(at right 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%);
+        background-blend-mode: overlay;
     }
 `;

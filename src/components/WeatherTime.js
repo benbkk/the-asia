@@ -7,19 +7,21 @@ import Time from 'components/Time';
 
 const WeatherTimeWrapper = styled('span')`
     display: block;
-    padding: 9px 18px;
-    margin: 9px 18px;
+    position: absolute;
+    z-index: 4;
+    top: 1rem;
+    right: 1rem;
     backface-visibility: hidden;
-    opacity: 0;
     transition: opacity 0.2s ease-in-out;
 
-
+    ${gradientBlackShade}
 `;
+
 const WeatherTime = (props) => {
-    const { weather, style } = props;
+    const { weather } = props;
     const { temp, desc, time } = weather;
     return (
-        <WeatherTimeWrapper className={`${absTopRight} ${gradientBlackShade}`} style={{ opacity: style.opacity }}>
+        <WeatherTimeWrapper>
             <Weather temp={temp} desc={desc} />
             <Time time={time} />
         </WeatherTimeWrapper>
