@@ -93,6 +93,7 @@ export default class Carousel extends Component {
                 content: '';
                 display: block;
                 position: absolute;
+                z-index: 0;
                 background: url(${screenImg}) center no-repeat;
                 background-size: cover;
                 background-blend-mode: overlay;

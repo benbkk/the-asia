@@ -12,9 +12,11 @@ import { Text } from 'static/Elements';
 
 const FigCaption = styled('figcaption')`
     display: table-cell;
+    width: 46%;
     vertical-align: middle;
     z-index: 2;
     position: relative;
+    opacity: 0;
 
     h2 {
         margin-bottom: 18px;

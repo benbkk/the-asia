@@ -42,6 +42,7 @@ export const slideVisible = css`
     opactity: 1;
     transition:  opacity 0.3s ease-in-out;
     visibility: visible;
+
 `;
 
 export const cityItem = css`

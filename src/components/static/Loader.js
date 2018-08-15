@@ -53,8 +53,10 @@ const Loader = styled('div')`
 `;
 
 
-export default () => (
+const Loading = () => (
     <Loader className="spinner">
         <Bounce />
     </Loader>
 );
+
+export default Loading;

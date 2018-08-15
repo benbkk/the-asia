@@ -15,6 +15,7 @@ const WeatherWrapper = styled('span')`
 
 const transformDown = css`
     transform: translateY(-3px);
+    backface-visibility: hidden;
 `;
 
 const Weather = (props) => {

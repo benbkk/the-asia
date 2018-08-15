@@ -11,6 +11,7 @@ const TimeWrapper = styled('span')`
     text-align: right;
     position: relative;
     z-index: 2;
+    backface-visibility: hidden;
 `;
 
 const Time = (props) => {

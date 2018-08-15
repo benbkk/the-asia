@@ -7,10 +7,10 @@ const AnimateCaption = (props) => {
     const { active } = props;
     return (
         <Motion
-            defaultStyle={{ x: -800, opacity: 0 }}
+            defaultStyle={{ x: -900, opacity: 0 }}
             style={{
-                x: spring(active ? 0 : -800, { stiffness: 60, damping: 20 }),
-                opacity: spring(active ? 1 : 0, { stiffness: 20, damping: 10 }),
+                x: spring(active ? 0 : -900, { stiffness: 60, damping: 15 }),
+                opacity: spring(active ? 1 : 0),
             }}
         >
             {style => (
